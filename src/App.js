@@ -7,7 +7,9 @@ class App extends Component {
   state = {
     cocktails: UNFORGETTABLES,
     selectedLiquor: [],
-    checkboxes: []
+    checkboxes: [],
+    result: [],
+    test: false
   }
 
   constructor() {
@@ -20,16 +22,33 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+
+    // Other?
+    this.filter = this.filter.bind(this);
   }
 
   componentDidMount() {
     this.setupCheckbox();
-    console.log(Object.keys(this.state.cocktails))
-    // console.log(this.state.cocktails["White Lady"]);
+    // console.log(Object.keys(this.state.cocktails))
+    // console.log(this.state.cocktails["White Lady"].liquor);
   }
-  
-  componentDidUpdate() {
-    // console.log(this.state.checkboxes);
+
+  // Need to fix duplicate issues
+  filter() {
+    // console.log(this.state.selectedLiquor);
+    let result = [];
+    // check if liquor is in the iterated cocktail
+    // if so find it and add it to 'result'
+    for(let cocktail in this.state.cocktails) {
+      let cocktailLiquor = this.state.cocktails[cocktail].liquor;
+      for(let liquor of this.state.selectedLiquor) {
+        if(cocktailLiquor.includes(liquor) === true) {
+          result.push(cocktail);
+        }
+      }
+    }
+
+    this.setState({result});
   }
 
   // Only LIQUOR for now. Most likely need to refactor it to take in just LIQUOR category
@@ -49,7 +68,7 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // Add the selected state to the 'result' array
+    // Add the selected state to the 'selectedLiquor' array
     let selected = [];
     this.state.checkboxes.forEach(function(element) {
       if(element.isChecked === true) {
@@ -58,8 +77,10 @@ class App extends Component {
       }
     });
     this.setState({selectedLiquor: selected});
+    this.setState({test: true});
 
     // Reset 'checkboxes' - put to a new function
+    this.filter();
   }
 
   handleChange(e) {
@@ -92,6 +113,14 @@ class App extends Component {
           handleChange={this.handleChange}
           handleClear={this.handleClear}
         />
+        <h3>Result</h3>
+        <ul>
+          {
+            this.state.result.map(cocktail => {
+              return <li key={cocktail}>{cocktail}</li>
+            })
+          }
+        </ul>
       </React.Fragment>
     );
   }
