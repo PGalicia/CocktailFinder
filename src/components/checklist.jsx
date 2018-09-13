@@ -11,6 +11,7 @@ class Checklist extends Component {
               <Checkbox
                 key={checkbox.id}
                 id={checkbox.id}
+                name={checkbox.name}
                 isChecked={checkbox.isChecked}
                 handleChange={this.props.handleChange}
               />

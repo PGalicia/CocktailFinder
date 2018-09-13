@@ -8,12 +8,12 @@ class Checkbox extends Component {
   render() {
     return (
       <React.Fragment>
-        <label htmlFor={this.props.id}>{this.props.id}</label>
+        <label htmlFor={this.props.id}>{this.props.name}</label>
         <input
           id={this.props.id}
           type="checkbox"
           value={this.props.isChecked}
-          name={this.props.id}
+          name={this.props.name}
           checked={this.props.isChecked}
           onChange={this.props.handleChange}
         />

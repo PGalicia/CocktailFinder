@@ -1,27 +1,49 @@
 import React, { Component } from 'react';
 import Checklist from './components/checklist';
 import './style/App.css';
-import COCKTAILS from './cocktail';
+import { UNFORGETTABLES, LIQUOR } from './cocktail'
 
 class App extends Component {
   state = {
-    cocktails: COCKTAILS,
-    selected: [
-      { category: "alcohol", checked: ["alc1", "alc2"] },
-      { category: "ingredients", checked: ["ingre1", "ingre2", "ingre3"] }
-    ],
-    result: [],
-    checkboxes: [
-      { id: 0, isChecked: false },
-      { id: 1, isChecked: false }
-    ]
+    cocktails: UNFORGETTABLES,
+    selectedLiquor: [],
+    checkboxes: []
   }
 
   constructor() {
     super();
+    
+    // State Setup
+    this.setupCheckbox = this.setupCheckbox.bind(this);
+
+    // Event Handlers
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+  }
+
+  componentDidMount() {
+    this.setupCheckbox();
+    console.log(Object.keys(this.state.cocktails))
+    // console.log(this.state.cocktails["White Lady"]);
+  }
+  
+  componentDidUpdate() {
+    // console.log(this.state.checkboxes);
+  }
+
+  // Only LIQUOR for now. Most likely need to refactor it to take in just LIQUOR category
+  // or possibly add a new method
+  setupCheckbox() {
+    let checkboxes = [];
+    
+    for(let id = 0; id < LIQUOR.length ;id++) {
+      let key = LIQUOR[id];
+      let template = { id: id, name: key, isChecked: false };
+      checkboxes.push(template);
+    }
+    
+    this.setState({checkboxes});
   }
 
   handleSubmit(e) {
@@ -31,21 +53,20 @@ class App extends Component {
     let selected = [];
     this.state.checkboxes.forEach(function(element) {
       if(element.isChecked === true) {
-        selected.push(element.id);
+        selected.push(element.name);
+        // selected.push(element.id);
       }
     });
-    this.setState({result: selected});
+    this.setState({selectedLiquor: selected});
 
     // Reset 'checkboxes' - put to a new function
-
   }
 
   handleChange(e) {
     let checkboxes = [...this.state.checkboxes];
     let bool = e.target.value === "false" ? true : false;
-    checkboxes[+e.target.name].isChecked = bool;
+    checkboxes[+e.target.id].isChecked = bool;
     this.setState({checkboxes});
-    console.log(e.target.checked)
   }
 
   handleClear(e) {
@@ -61,7 +82,7 @@ class App extends Component {
       <React.Fragment>
         <h1>Hello World</h1>
         <ul>
-          {this.state.result.map(selected => {
+          {this.state.selectedLiquor.map(selected => {
             return <li key={selected}>{selected}</li>
           })}
         </ul>
