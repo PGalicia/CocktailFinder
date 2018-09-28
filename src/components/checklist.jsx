@@ -7,18 +7,43 @@ class Checklist extends Component {
       <React.Fragment>
         <form onSubmit={this.props.handleSubmit}>
           <React.Fragment>
-            {this.props.checkboxes.map(checkbox => (
-              <Checkbox
-                key={checkbox.id}
-                id={checkbox.id}
-                name={checkbox.name}
-                isChecked={checkbox.isChecked}
-                handleChange={this.props.handleChange}
-              />
-            ))}
+            <h4>Liquor</h4>
+            {this.props.checkboxes.map(checkbox => {
+              if (checkbox.category === "liquor") {
+                return (
+                  <Checkbox
+                    key={checkbox.id}
+                    id={checkbox.id}
+                    name={checkbox.name}
+                    isChecked={checkbox.isChecked}
+                    handleChange={this.props.handleChange}
+                  />
+                );
+              }
+              return null;
+            })}
           </React.Fragment>
-          <input type="submit" />
-          <button onClick={this.props.handleClear}>Clear</button>
+          <React.Fragment>
+            <h4>Ingredients</h4>
+            {this.props.checkboxes.map(checkbox => {
+              if (checkbox.category === "ingredient") {
+                return (
+                  <Checkbox
+                    key={checkbox.id}
+                    id={checkbox.id}
+                    name={checkbox.name}
+                    isChecked={checkbox.isChecked}
+                    handleChange={this.props.handleChange}
+                  />
+                );
+              }
+              return null;
+            })}
+          </React.Fragment>
+          <div>
+            <input type="submit" />
+            <button onClick={this.props.handleClear}>Clear</button>
+          </div>
         </form>
       </React.Fragment>
     );

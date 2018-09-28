@@ -3,6 +3,11 @@ import Checklist from './components/checklist';
 import './style/App.css';
 import { UNFORGETTABLES } from './cocktail'
 
+const template = [
+  { category: "liquor", chosen: [] },
+  { category: "ingredients", chosen: [] }
+];
+
 const retrieveAlcohol = cocktails => {
   let alcohol = [];
   for(let cocktail in cocktails){
@@ -11,10 +16,19 @@ const retrieveAlcohol = cocktails => {
   return [...new Set(alcohol)].sort();
 }
 
+const retrieveIngredients = cocktails => {
+  let ingredient = [];
+  for(let cocktail in cocktails) {
+    ingredient = ingredient.concat(cocktails[cocktail].ingredients);
+  }
+  return [...new Set(ingredient)].sort();
+}
+
 class App extends Component {
   state = {
     cocktails: UNFORGETTABLES,
     alcohol: retrieveAlcohol(UNFORGETTABLES),
+    ingredients: retrieveIngredients(UNFORGETTABLES),
     selectedLiquor: [],
     checkboxes: [],
     selected: [
@@ -66,19 +80,22 @@ class App extends Component {
   // or possibly add a new method
   setupCheckbox() {
     let checkboxes = [...this.state.checkboxes];
+    let count = 0;
     
-    for(let id = 0; id < this.state.alcohol.length ;id++) {
+    for(let id = count; id < this.state.alcohol.length ;id++) {
       let key = this.state.alcohol[id];
       let template = { id: id, category: 'liquor', name: key, isChecked: false };
       checkboxes.push(template);
+      count++;
     }
 
-    // for(let id = 0; id < LIQUOR.length ;id++) {
-    //   let key = LIQUOR[id];
-    //   let template = { id: id, category: 'liquor', name: key, isChecked: false };
-    //   checkboxes.push(template);
-    // }
-    
+    for(let id = 0; id < this.state.ingredients.length; id++) {
+      let key = this.state.ingredients[id];
+      let template = { id: count, category: 'ingredient', name: key, isChecked: false };
+      checkboxes.push(template);
+      count++;
+    }
+
     this.setState({checkboxes});
   }
   
@@ -87,6 +104,7 @@ class App extends Component {
     
     // Add the selected state to the 'selectedLiquor' array
     let selected = [...this.state.selected];
+    console.log(selected);
 
     // Handle liquor
     this.state.checkboxes.forEach(liquor => {
@@ -98,7 +116,7 @@ class App extends Component {
 
     // Handle Ingredients
     this.state.checkboxes.forEach(ingredient => {
-      if(ingredient.category === "ingredients" && ingredient.isChecked === true && selected[0].chosen.includes(ingredient.name) === false) {
+      if(ingredient.category === "ingredient" && ingredient.isChecked === true && selected[1].chosen.includes(ingredient.name) === false) {
         selected[1].chosen.push(ingredient.name);
         // selected.push(element.id);
       }
@@ -142,10 +160,19 @@ class App extends Component {
           handleChange={this.handleChange}
           handleClear={this.handleClear}
         />
-        <h3>Result</h3>
+        <h3>Result:</h3>
+        <h5>Liquor</h5>
         <ul>
           {
             this.state.selected[0].chosen.map(chosen => {
+              return <li key={chosen}>{chosen}</li>
+            })
+          }
+        </ul>
+        <h5>Ingredients</h5>
+        <ul>
+          {
+            this.state.selected[1].chosen.map(chosen => {
               return <li key={chosen}>{chosen}</li>
             })
           }
