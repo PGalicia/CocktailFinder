@@ -3,18 +3,18 @@ import Checklist from './components/checklist';
 import './style/App.css';
 import { UNFORGETTABLES } from './cocktail'
 
-const retrieveLiquors = cocktails => {
-  let liquors = [];
+const retrieveAlcohol = cocktails => {
+  let alcohol = [];
   for(let cocktail in cocktails){
-    liquors = liquors.concat(cocktails[cocktail].liquor);
+    alcohol = alcohol.concat(cocktails[cocktail].alcohol);
   }
-  return [...new Set(liquors)].sort();
+  return [...new Set(alcohol)].sort();
 }
 
 class App extends Component {
   state = {
     cocktails: UNFORGETTABLES,
-    liquors: retrieveLiquors(UNFORGETTABLES),
+    alcohol: retrieveAlcohol(UNFORGETTABLES),
     selectedLiquor: [],
     checkboxes: [],
     selected: [
@@ -67,8 +67,8 @@ class App extends Component {
   setupCheckbox() {
     let checkboxes = [...this.state.checkboxes];
     
-    for(let id = 0; id < this.state.liquors.length ;id++) {
-      let key = this.state.liquors[id];
+    for(let id = 0; id < this.state.alcohol.length ;id++) {
+      let key = this.state.alcohol[id];
       let template = { id: id, category: 'liquor', name: key, isChecked: false };
       checkboxes.push(template);
     }
