@@ -92,24 +92,6 @@ export const UNFORGETTABLES = {
   }
 };
 
-export const LIQUOR = [
-  "Campari",
-  "Calvados",
-  "Cognac",
-  "Creme De Cacao",
-  "Gin",
-  "Port",
-  "Rum",
-  "Scotch Whisky",
-  "Triple Sec",
-  "Vodka",
-  "Vermouth",
-  "Whiskey"
-
-
-];
-
-
 
 
 

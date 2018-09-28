@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import Checklist from './components/checklist';
 import './style/App.css';
-import { UNFORGETTABLES, LIQUOR } from './cocktail'
+import { UNFORGETTABLES } from './cocktail'
+
+const retrieveLiquors = cocktails => {
+  let liquors = [];
+  for(let cocktail in cocktails){
+    liquors = liquors.concat(cocktails[cocktail].liquor);
+  }
+  return [...new Set(liquors)].sort();
+}
 
 class App extends Component {
   state = {
     cocktails: UNFORGETTABLES,
+    liquors: retrieveLiquors(UNFORGETTABLES),
     selectedLiquor: [],
     checkboxes: [],
     selected: [
@@ -58,11 +67,17 @@ class App extends Component {
   setupCheckbox() {
     let checkboxes = [...this.state.checkboxes];
     
-    for(let id = 0; id < LIQUOR.length ;id++) {
-      let key = LIQUOR[id];
+    for(let id = 0; id < this.state.liquors.length ;id++) {
+      let key = this.state.liquors[id];
       let template = { id: id, category: 'liquor', name: key, isChecked: false };
       checkboxes.push(template);
     }
+
+    // for(let id = 0; id < LIQUOR.length ;id++) {
+    //   let key = LIQUOR[id];
+    //   let template = { id: id, category: 'liquor', name: key, isChecked: false };
+    //   checkboxes.push(template);
+    // }
     
     this.setState({checkboxes});
   }
@@ -74,17 +89,17 @@ class App extends Component {
     let selected = [...this.state.selected];
 
     // Handle liquor
-    this.state.checkboxes.forEach(function(element) {
-      if(element.category === "liquor" && element.isChecked === true) {
-        selected[0].chosen.push(element.name);
+    this.state.checkboxes.forEach(liquor => {
+      if(liquor.category === "liquor" && liquor.isChecked === true && selected[0].chosen.includes(liquor.name) === false) {
+        selected[0].chosen.push(liquor.name);
         // selected.push(element.id);
       }
     });
 
     // Handle Ingredients
-    this.state.checkboxes.forEach(function(element) {
-      if(element.category === "ingredients" && element.isChecked === true) {
-        selected[1].chosen.push(element.name);
+    this.state.checkboxes.forEach(ingredient => {
+      if(ingredient.category === "ingredients" && ingredient.isChecked === true && selected[0].chosen.includes(ingredient.name) === false) {
+        selected[1].chosen.push(ingredient.name);
         // selected.push(element.id);
       }
     });
