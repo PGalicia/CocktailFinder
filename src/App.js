@@ -2,27 +2,7 @@ import React, { Component } from 'react';
 import Checklist from './components/checklist';
 import './style/App.css';
 import { UNFORGETTABLES } from './cocktail'
-
-const template = [
-  { category: "liquor", chosen: [] },
-  { category: "ingredients", chosen: [] }
-];
-
-const retrieveAlcohol = cocktails => {
-  let alcohol = [];
-  for(let cocktail in cocktails){
-    alcohol = alcohol.concat(cocktails[cocktail].alcohol);
-  }
-  return [...new Set(alcohol)].sort();
-}
-
-const retrieveIngredients = cocktails => {
-  let ingredient = [];
-  for(let cocktail in cocktails) {
-    ingredient = ingredient.concat(cocktails[cocktail].ingredients);
-  }
-  return [...new Set(ingredient)].sort();
-}
+import {retrieveAlcohol, retrieveIngredients} from './utils';
 
 class App extends Component {
   state = {
@@ -104,8 +84,12 @@ class App extends Component {
     
     // Add the selected state to the 'selectedLiquor' array
     let selected = [...this.state.selected];
-    console.log(selected);
 
+    // reset chosen items
+    for(let category of selected) {
+      category.chosen = [];
+    }
+    
     // Handle liquor
     this.state.checkboxes.forEach(liquor => {
       if(liquor.category === "liquor" && liquor.isChecked === true && selected[0].chosen.includes(liquor.name) === false) {
