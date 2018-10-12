@@ -36,6 +36,8 @@ class App extends Component {
     this.setupCheckbox();
     // console.log(Object.keys(this.state.cocktails))
     // console.log(this.state.cocktails["White Lady"].liquor);
+    console.log(this.state.alcohol);
+    console.log(this.state.ingredients);
   }
 
   // Need to fix duplicate issues
