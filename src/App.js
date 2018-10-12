@@ -9,6 +9,7 @@ class App extends Component {
     cocktails: UNFORGETTABLES,
     alcohol: retrieveAlcohol(UNFORGETTABLES),
     ingredients: retrieveIngredients(UNFORGETTABLES),
+    closeCocktails: [],
     possibleCocktails: [],
     checkboxes: [],
     selected: [
@@ -28,9 +29,8 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
 
-    // Other?
+    // Other
     this.findCocktails = this.findCocktails.bind(this);
-    // this.filter = this.filter.bind(this);
   }
 
   componentDidMount() {
@@ -38,24 +38,6 @@ class App extends Component {
     // console.log(Object.keys(this.state.cocktails))
     // console.log(this.state.cocktails["White Lady"].liquor);
   }
-
-  // Need to fix duplicate issues
-  // filter() {
-  //   // console.log(this.state.selectedLiquor);
-  //   let result = [...this.state.result];
-  //   // check if liquor is in the iterated cocktail
-  //   // if so find it and add it to 'result'
-  //   for(let cocktail in this.state.cocktails) {
-  //     let cocktailLiquor = this.state.cocktails[cocktail].liquor;
-  //     for(let liquor of this.state.selectedLiquor) {
-  //       if(cocktailLiquor.includes(liquor) === true) {
-  //         result.push(cocktail);
-  //       }
-  //     }
-  //   }
-
-  //   this.setState({result});
-  // }
 
   // Only LIQUOR for now. Most likely need to refactor it to take in just LIQUOR category
   // or possibly add a new method
@@ -116,25 +98,31 @@ class App extends Component {
   }
   
   findCocktails() {
+    let closeCocktails = [];
     let possibleCocktails = [];
 
+    // Finds the close cocktail matches -- has at least one matching ingredient/alcohol
     for(let cocktail of this.state.cocktails) {
       for(let alcohol of cocktail.alcohol) {
         if(this.state.selected[0].chosen.includes(alcohol)) {
-          possibleCocktails.push(cocktail.name);
+          closeCocktails.push(cocktail);
           break;
         }
       }
       // cocktail.alcohol.forEach(alcohol => this.state.selected[0].chosen.includes(alcohol));
       for(let ingredient of cocktail.ingredients) {
-        if(this.state.selected[1].chosen.includes(ingredient) && !possibleCocktails.includes(cocktail.name)) {
-          possibleCocktails.push(cocktail.name);
+        if(this.state.selected[1].chosen.includes(ingredient) && !closeCocktails.includes(cocktail)) {
+          closeCocktails.push(cocktail);
           break;
         }
       }
+
+      // Finds the exact cocktail match
+      if(cocktail.alcohol.every(elem => this.state.selected[0].chosen.indexOf(elem) > -1)) possibleCocktails.push(cocktail);
+      if(cocktail.ingredients.every(elem => this.state.selected[1].chosen.indexOf(elem) > -1) && !possibleCocktails.includes(cocktail)) possibleCocktails.push(cocktail);
     }
     
-    this.setState({possibleCocktails});
+    this.setState({closeCocktails, possibleCocktails});
   }
 
   handleChange(e) {
@@ -157,11 +145,6 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1>Hello World</h1>
-        {/* <ul>
-          {this.state.selectedLiquor.map(selected => {
-            return <li key={selected}>{selected}</li>
-          })}
-        </ul> */}
         <Checklist 
           checkboxes={this.state.checkboxes}
           handleSubmit={this.handleSubmit}
@@ -185,11 +168,21 @@ class App extends Component {
             })
           }
         </ul>
-        <h5>Result</h5>
+        {/* at least one match */}
+        <h5>Close cocktail</h5>
+        <ul>
+        {
+            this.state.closeCocktails.map(cocktail => {
+              return <li key={cocktail.name}>{cocktail.name}</li>
+            })
+          }
+        </ul>
+        {/* exact match */}
+        <h5>Possible cocktail</h5>
         <ul>
         {
             this.state.possibleCocktails.map(cocktail => {
-              return <li key={cocktail}>{cocktail}</li>
+              return <li key={cocktail.name}>{cocktail.name}</li>
             })
           }
         </ul>
@@ -199,32 +192,3 @@ class App extends Component {
 }
 
 export default App;
-
-// iterate through UNFORGETABLE
-// itertate through alochol
-// if alochol in the UNFORGETABLE is in selected alcohol
-
-// for(let cocktail of UNFORGETTABLES) {
-//   for(let alcohol of cocktail.alcohol) {
-//     if(this.state.selected[0].chosen.includes(alcohol)) {
-//       // add it to possible cocktails
-//       break;
-//     }
-//   }
-//   // cocktail.alcohol.forEach(alcohol => this.state.selected[0].chosen.includes(alcohol));
-// }
-
-
-// ACCESS DATA - DRAFT
-// {
-//   Object.entries(this.state.cocktails.Alexander).map(([key, value]) => {
-//     if(typeof value === "string") {
-//       return <li key={key}>{key}: {value}</li>
-//     } 
-//     else if(key === "ingredients"){
-//       return null;
-//     } else {
-//       return <li key={key}>{key}: {value.map(val => <span key={val}>{val}</span> )}</li>
-//     }
-//   })
-// }
