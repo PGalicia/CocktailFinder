@@ -118,8 +118,8 @@ class App extends Component {
       }
 
       // Finds the exact cocktail match
-      if(cocktail.alcohol.every(elem => this.state.selected[0].chosen.indexOf(elem) > -1)) possibleCocktails.push(cocktail);
-      if(cocktail.ingredients.every(elem => this.state.selected[1].chosen.indexOf(elem) > -1) && !possibleCocktails.includes(cocktail)) possibleCocktails.push(cocktail);
+      if(cocktail.alcohol.every(elem => this.state.selected[0].chosen.indexOf(elem) > -1) && cocktail.ingredients.every(elem => this.state.selected[1].chosen.indexOf(elem) > -1)) possibleCocktails.push(cocktail);
+      // if(cocktail.ingredients.every(elem => this.state.selected[1].chosen.indexOf(elem) > -1) && !possibleCocktails.includes(cocktail)) possibleCocktails.push(cocktail);
     }
     
     this.setState({closeCocktails, possibleCocktails});
