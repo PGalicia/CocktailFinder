@@ -17,6 +17,12 @@ export const UNFORGETTABLES = [
     ingredients: ["apricot brandy"],
     garnish: []
   },
+  {
+    name: "Aviation",
+    alcohol: ["Gin"],
+    ingredients: ["creme de violette", "lemon juice", "maraschino liqueur"],
+    garnish: ["cherry"]
+  },
 ];
 
 

@@ -9,7 +9,7 @@ class App extends Component {
     cocktails: UNFORGETTABLES,
     alcohol: retrieveAlcohol(UNFORGETTABLES),
     ingredients: retrieveIngredients(UNFORGETTABLES),
-    selectedLiquor: [],
+    possibleCocktails: [],
     checkboxes: [],
     selected: [
       { category: "liquor", chosen: [] },
@@ -29,6 +29,7 @@ class App extends Component {
     this.handleClear = this.handleClear.bind(this);
 
     // Other?
+    this.findCocktails = this.findCocktails.bind(this);
     // this.filter = this.filter.bind(this);
   }
 
@@ -36,8 +37,6 @@ class App extends Component {
     this.setupCheckbox();
     // console.log(Object.keys(this.state.cocktails))
     // console.log(this.state.cocktails["White Lady"].liquor);
-    console.log(this.state.alcohol);
-    console.log(this.state.ingredients);
   }
 
   // Need to fix duplicate issues
@@ -112,9 +111,32 @@ class App extends Component {
     // this.setState({test: true});
     
     // Reset 'checkboxes' - put to a new function
+    this.findCocktails();
     // this.filter();
   }
   
+  findCocktails() {
+    let possibleCocktails = [];
+
+    for(let cocktail of this.state.cocktails) {
+      for(let alcohol of cocktail.alcohol) {
+        if(this.state.selected[0].chosen.includes(alcohol)) {
+          possibleCocktails.push(cocktail.name);
+          break;
+        }
+      }
+      // cocktail.alcohol.forEach(alcohol => this.state.selected[0].chosen.includes(alcohol));
+      for(let ingredient of cocktail.ingredients) {
+        if(this.state.selected[1].chosen.includes(ingredient) && !possibleCocktails.includes(cocktail.name)) {
+          possibleCocktails.push(cocktail.name);
+          break;
+        }
+      }
+    }
+    
+    this.setState({possibleCocktails});
+  }
+
   handleChange(e) {
     // console.log(this.state.checkboxes);
     let checkboxes = [...this.state.checkboxes];
@@ -135,11 +157,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1>Hello World</h1>
-        <ul>
+        {/* <ul>
           {this.state.selectedLiquor.map(selected => {
             return <li key={selected}>{selected}</li>
           })}
-        </ul>
+        </ul> */}
         <Checklist 
           checkboxes={this.state.checkboxes}
           handleSubmit={this.handleSubmit}
@@ -163,12 +185,34 @@ class App extends Component {
             })
           }
         </ul>
+        <h5>Result</h5>
+        <ul>
+        {
+            this.state.possibleCocktails.map(cocktail => {
+              return <li key={cocktail}>{cocktail}</li>
+            })
+          }
+        </ul>
       </React.Fragment>
     );
   }
 }
 
 export default App;
+
+// iterate through UNFORGETABLE
+// itertate through alochol
+// if alochol in the UNFORGETABLE is in selected alcohol
+
+// for(let cocktail of UNFORGETTABLES) {
+//   for(let alcohol of cocktail.alcohol) {
+//     if(this.state.selected[0].chosen.includes(alcohol)) {
+//       // add it to possible cocktails
+//       break;
+//     }
+//   }
+//   // cocktail.alcohol.forEach(alcohol => this.state.selected[0].chosen.includes(alcohol));
+// }
 
 
 // ACCESS DATA - DRAFT
