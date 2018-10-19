@@ -42,9 +42,9 @@ class Checklist extends Component {
           </React.Fragment>
           <div>
             <input type="submit" />
-            <button onClick={this.props.handleClear}>Clear</button>
           </div>
         </form>
+        <button onClick={this.props.handleClear}>Clear</button>
       </React.Fragment>
     );
   }
