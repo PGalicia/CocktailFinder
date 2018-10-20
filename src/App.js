@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Checklist from './components/checklist';
 import './style/App.css';
-import { UNFORGETTABLES } from './cocktail'
+import { COCKTAILS } from './cocktail'
 import {retrieveAlcohol, retrieveIngredients} from './utils';
 
 class App extends Component {
   state = {
-    cocktails: UNFORGETTABLES,
-    alcohol: retrieveAlcohol(UNFORGETTABLES),
-    ingredients: retrieveIngredients(UNFORGETTABLES),
+    cocktails: COCKTAILS,
+    alcohol: retrieveAlcohol(COCKTAILS),
+    ingredients: retrieveIngredients(COCKTAILS),
     closeCocktails: [],
     possibleCocktails: [],
     checkboxes: [],
