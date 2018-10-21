@@ -1,5 +1,11 @@
 import { COCKTAILS } from '../constants/cocktail';
 import { retrieveAlcohol, retrieveIngredients } from '../utils';
+import { 
+    CHECKBOXES_CHANGE,
+    SELECTED_CHECKBOXES,
+    UPDATE_CLOSE_COCKTAIL,
+    UPDATE_POSSIBLE_COCKTAIL
+} from "../constants/action-types";
 
 const initialState = {
     cocktails: COCKTAILS,
@@ -16,13 +22,13 @@ const initialState = {
 
 const rootReducer = ( state = initialState, action ) => {
     switch(action.type) {
-        case "CHECKBOXES_CHANGE":
+        case CHECKBOXES_CHANGE:
             return { ...state, checkboxes: action.payload };
-        case "SELECTED_CHECKBOXES":
+        case SELECTED_CHECKBOXES:
             return { ...state, selected: action.payload };
-        case "UPDATE_CLOSE_COCKTAIL":
+        case UPDATE_CLOSE_COCKTAIL:
             return { ...state, closeCocktails: action.payload };
-        case "UPDATE_POSSIBLE_COCKTAIL":
+        case UPDATE_POSSIBLE_COCKTAIL:
             return { ...state, possibleCocktails: action.payload };
         default:
             return state;
