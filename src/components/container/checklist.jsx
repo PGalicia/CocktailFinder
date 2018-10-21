@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-// import Checkbox from "./checkbox";
+
+// Redux
 import { connect } from "react-redux";
 import {
   handleCheckboxes,
   selectedCheckboxes,
   updateCloseCocktails,
   updatePossibleCocktails
-} from "../actions/action-types";
+} from "../../actions/index";
+
+// Components - Presentational
+import FilterChecklistContainer from "../presentational/filterChecklistContainer";
 
 const mapStateToProps = state => {
   return {
@@ -71,10 +75,7 @@ class Checklist extends Component {
       }
     });
 
-    // this.setState({ selected });
     this.props.selectedCheckboxes(selected);
-
-    // Reset 'checkboxes' - put to a new function
     this.findCocktails();
   }
 
@@ -90,7 +91,7 @@ class Checklist extends Component {
           break;
         }
       }
-      // cocktail.alcohol.forEach(alcohol => this.props.selected[0].chosen.includes(alcohol));
+
       for (let ingredient of cocktail.ingredients) {
         if (
           this.props.selected[1].chosen.includes(ingredient) &&
@@ -111,12 +112,10 @@ class Checklist extends Component {
         )
       )
         possibleCocktails.push(cocktail);
-      // if(cocktail.ingredients.every(elem => this.props.selected[1].chosen.indexOf(elem) > -1) && !possibleCocktails.includes(cocktail)) possibleCocktails.push(cocktail);
     }
 
     this.props.updateCloseCocktails(closeCocktails);
     this.props.updatePossibleCocktails(possibleCocktails);
-    // this.setState({ closeCocktails, possibleCocktails });
   }
 
   handleChange(e) {
@@ -138,66 +137,20 @@ class Checklist extends Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
-          <React.Fragment>
-            <h4>Liquor</h4>
-            {this.props.checkboxes.map(checkbox => {
-              if (checkbox.category === "liquor") {
-                return (
-                  // <Checkbox
-                  //   key={checkbox.id}
-                  //   id={checkbox.id}
-                  //   name={checkbox.name}
-                  //   isChecked={checkbox.isChecked}
-                  //   handleChange={this.props.handleChange}
-                  // />
-                  <React.Fragment key={checkbox.id}>
-                    <label htmlFor={checkbox.id}>{checkbox.name}</label>
-                    <input
-                      id={checkbox.id}
-                      type="checkbox"
-                      value={checkbox.isChecked}
-                      name={checkbox.name}
-                      checked={checkbox.isChecked}
-                      onChange={this.handleChange}
-                    />
-                  </React.Fragment>
-                );
-              }
-              return null;
-            })}
-          </React.Fragment>
-          <React.Fragment>
-            <h4>Ingredients</h4>
-            {this.props.checkboxes.map(checkbox => {
-              if (checkbox.category === "ingredient") {
-                return (
-                  // <Checkbox
-                  //   key={checkbox.id}
-                  //   id={checkbox.id}
-                  //   name={checkbox.name}
-                  //   isChecked={checkbox.isChecked}
-                  //   handleChange={this.props.handleChange}
-                  // />
+          <FilterChecklistContainer
+            name="Liquor"
+            category="liquor"
+            checkboxes={this.props.checkboxes}
+            handleChange={this.handleChange}
+          />
+          <FilterChecklistContainer
+            name="Ingredients"
+            category="ingredient"
+            checkboxes={this.props.checkboxes}
+            handleChange={this.handleChange}
+          />
 
-                  <React.Fragment key={checkbox.id}>
-                    <label htmlFor={checkbox.id}>{checkbox.name}</label>
-                    <input
-                      id={checkbox.id}
-                      type="checkbox"
-                      value={checkbox.isChecked}
-                      name={checkbox.name}
-                      checked={checkbox.isChecked}
-                      onChange={this.handleChange}
-                    />
-                  </React.Fragment>
-                );
-              }
-              return null;
-            })}
-          </React.Fragment>
-          <div>
-            <input type="submit" />
-          </div>
+          <input type="submit" />
         </form>
         <button onClick={this.handleClear}>Clear</button>
       </React.Fragment>

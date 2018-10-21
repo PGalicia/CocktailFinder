@@ -1,4 +1,4 @@
-import { COCKTAILS } from '../cocktail';
+import { COCKTAILS } from '../constants/cocktail';
 import { retrieveAlcohol, retrieveIngredients } from '../utils';
 
 const initialState = {
