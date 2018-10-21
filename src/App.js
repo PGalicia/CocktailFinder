@@ -4,6 +4,7 @@ import './style/App.css';
 import { COCKTAILS } from './cocktail'
 import {retrieveAlcohol, retrieveIngredients} from './utils';
 
+// Test
 class App extends Component {
   state = {
     cocktails: COCKTAILS,
