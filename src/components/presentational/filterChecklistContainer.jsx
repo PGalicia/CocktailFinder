@@ -1,4 +1,5 @@
 import React from "react";
+import "../../style/checkbox.css";
 
 const FilterChecklistContainer = props => (
   <React.Fragment>
@@ -7,7 +8,7 @@ const FilterChecklistContainer = props => (
       .filter(checkbox => checkbox.category === props.category)
       .map(checkbox => {
         return (
-          <React.Fragment key={checkbox.id}>
+          <div key={checkbox.id} className="checkbox">
             <label htmlFor={checkbox.id}>{checkbox.name}</label>
             <input
               id={checkbox.id}
@@ -17,7 +18,7 @@ const FilterChecklistContainer = props => (
               checked={checkbox.isChecked}
               onChange={props.handleChange}
             />
-          </React.Fragment>
+          </div>
         );
       })}
   </React.Fragment>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../style/App.css";
 
 // Redux
 import { connect } from "react-redux";
@@ -67,7 +68,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Cocktail Finder</h1>
+        <div className="header">
+          <h1 className="title">Cocktail Finder</h1>
+        </div>
         <Checklist />
         <h2>Selected:</h2>
         <SelectedContainer
