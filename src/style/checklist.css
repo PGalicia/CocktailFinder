@@ -1,0 +1,11 @@
+.filter-button {
+  background-color: palegoldenrod;
+  border: none;
+  border-radius: 10%;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../style/checklist.css";
 
 // Redux
 import { connect } from "react-redux";
@@ -136,7 +137,7 @@ class Checklist extends Component {
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="filter-form">
           <FilterChecklistContainer
             name="Liquor"
             category="liquor"
@@ -150,9 +151,11 @@ class Checklist extends Component {
             handleChange={this.handleChange}
           />
 
-          <input type="submit" />
+          <button className="filter-button">Submit</button>
+          <button className="filter-button" onClick={this.handleClear}>
+            Clear
+          </button>
         </form>
-        <button onClick={this.handleClear}>Clear</button>
       </React.Fragment>
     );
   }

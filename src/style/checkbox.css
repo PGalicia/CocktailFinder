@@ -1,20 +1,27 @@
-.checkbox {
-  /* background-color: paleturquoise; */
-  margin: 15px;
+.filter-list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-row-gap: 15px;
 }
 
-.checkbox > * {
-  display: inline-block;
+.filter-title {
+  margin: 0;
+  padding: 25px 10px;
 }
 
-.checkbox label {
+.switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle {
+  cursor: pointer;
   background-color: peru;
-  padding: 10px;
-  /* width: 100%;
-  margin: 5px; */
+  padding: 5px;
+  border-radius: 10%;
 }
 
-.checkbox .box {
-  background-color: peru;
-  padding: 10px;
+input:checked + .toggle {
+  background-color: paleturquoise;
 }
