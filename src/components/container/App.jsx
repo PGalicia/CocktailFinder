@@ -85,12 +85,12 @@ class App extends Component {
         />
         <h2>Result:</h2>
         <ResultContainer
-          name="Close Cocktail"
-          result={this.props.closeCocktails}
-        />
-        <ResultContainer
           name="Possible Cocktail"
           result={this.props.possibleCocktails}
+        />
+        <ResultContainer
+          name="Close Cocktail"
+          result={this.props.closeCocktails}
         />
       </React.Fragment>
     );
