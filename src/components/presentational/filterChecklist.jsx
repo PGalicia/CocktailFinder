@@ -1,7 +1,7 @@
 import React from "react";
 import "../../style/checkbox.css";
 
-const FilterChecklistContainer = props => (
+const FilterChecklist = props => (
   <React.Fragment>
     <h2 className="filter-title">{props.name}</h2>
     <div className="filter-list">
@@ -26,4 +26,4 @@ const FilterChecklistContainer = props => (
   </React.Fragment>
 );
 
-export default FilterChecklistContainer;
+export default FilterChecklist;

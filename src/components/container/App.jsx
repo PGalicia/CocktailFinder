@@ -9,8 +9,8 @@ import { handleCheckboxes } from "../../actions";
 import Checklist from "./checklist";
 
 // Components - Presentational
-import SelectedContainer from "../presentational/selectedContainer";
-import ResultContainer from "../presentational/resultContainer";
+import Selected from "../presentational/selected";
+import Result from "../presentational/result";
 
 const mapStateToProps = state => {
   return state;
@@ -73,25 +73,22 @@ class App extends Component {
         </div>
         <Checklist />
         <h2>Selected:</h2>
-        <SelectedContainer
+        <Selected
           name="Liquor"
           category="liquor"
           selected={this.props.selected}
         />
-        <SelectedContainer
+        <Selected
           name="Ingredients"
           category="ingredients"
           selected={this.props.selected}
         />
         <h2>Result:</h2>
-        <ResultContainer
+        <Result
           name="Possible Cocktail"
           result={this.props.possibleCocktails}
         />
-        <ResultContainer
-          name="Close Cocktail"
-          result={this.props.closeCocktails}
-        />
+        <Result name="Close Cocktail" result={this.props.closeCocktails} />
       </React.Fragment>
     );
   }

@@ -11,7 +11,7 @@ import {
 } from "../../actions/index";
 
 // Components - Presentational
-import FilterChecklistContainer from "../presentational/filterChecklistContainer";
+import FilterChecklist from "../presentational/filterChecklist";
 
 const mapStateToProps = state => {
   return {
@@ -138,13 +138,13 @@ class Checklist extends Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
-          <FilterChecklistContainer
+          <FilterChecklist
             name="Liquor"
             category="liquor"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
           />
-          <FilterChecklistContainer
+          <FilterChecklist
             name="Ingredients"
             category="ingredient"
             checkboxes={this.props.checkboxes}
