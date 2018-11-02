@@ -127,6 +127,8 @@ class Checklist extends Component {
   }
 
   handleClear(e) {
+    e.preventDefault();
+
     let checkboxes = [...this.props.checkboxes];
     checkboxes.forEach(index => {
       index.isChecked = false;
