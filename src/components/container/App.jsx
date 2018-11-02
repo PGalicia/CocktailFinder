@@ -1,77 +1,77 @@
 import React, { Component } from "react";
-import "../../style/App.css";
 
 // Redux
-import { connect } from "react-redux";
-import { handleCheckboxes } from "../../actions";
+// import { connect } from "react-redux";
+// import { handleCheckboxes } from "../../actions";
 
 // Components - Container
-import Checklist from "./checklist";
+// import Checklist from "./checklist";
 
 // Components - Presentational
-import Selected from "../presentational/selected";
-import Result from "../presentational/result";
+// import Selected from "../presentational/selected";
+// import Result from "../presentational/result";
+import Header from "../presentational/header";
+import Main from "../presentational/main";
 
-const mapStateToProps = state => {
-  return state;
-};
+// const mapStateToProps = state => {
+//   return state;
+// };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleCheckboxes: checkboxes => dispatch(handleCheckboxes(checkboxes))
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     handleCheckboxes: checkboxes => dispatch(handleCheckboxes(checkboxes))
+//   };
+// };
 
 class App extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    // Checkbox Setup
-    this.setupCheckbox = this.setupCheckbox.bind(this);
-  }
+  //   // Checkbox Setup
+  //   this.setupCheckbox = this.setupCheckbox.bind(this);
+  // }
 
-  componentDidMount() {
-    this.setupCheckbox();
-  }
+  // componentDidMount() {
+  //   this.setupCheckbox();
+  // }
 
-  setupCheckbox() {
-    let checkboxes = [...this.props.checkboxes];
-    let count = 0;
+  // setupCheckbox() {
+  //   let checkboxes = [...this.props.checkboxes];
+  //   let count = 0;
 
-    for (let id = count; id < this.props.alcohol.length; id++) {
-      let key = this.props.alcohol[id];
-      let template = {
-        id: id,
-        category: "liquor",
-        name: key,
-        isChecked: false
-      };
-      checkboxes.push(template);
-      count++;
-    }
+  //   for (let id = count; id < this.props.alcohol.length; id++) {
+  //     let key = this.props.alcohol[id];
+  //     let template = {
+  //       id: id,
+  //       category: "liquor",
+  //       name: key,
+  //       isChecked: false
+  //     };
+  //     checkboxes.push(template);
+  //     count++;
+  //   }
 
-    for (let id = 0; id < this.props.ingredients.length; id++) {
-      let key = this.props.ingredients[id];
-      let template = {
-        id: count,
-        category: "ingredient",
-        name: key,
-        isChecked: false
-      };
-      checkboxes.push(template);
-      count++;
-    }
+  //   for (let id = 0; id < this.props.ingredients.length; id++) {
+  //     let key = this.props.ingredients[id];
+  //     let template = {
+  //       id: count,
+  //       category: "ingredient",
+  //       name: key,
+  //       isChecked: false
+  //     };
+  //     checkboxes.push(template);
+  //     count++;
+  //   }
 
-    this.props.handleCheckboxes(checkboxes);
-  }
+  //   this.props.handleCheckboxes(checkboxes);
+  // }
 
   render() {
     return (
       <React.Fragment>
-        <div className="header">
-          <h1 className="title">Cocktail Finder</h1>
-        </div>
-        <Checklist />
+        <Header />
+        <Main />
+        {/* <Checklist />
         <h2>Selected:</h2>
         <Selected
           name="Liquor"
@@ -88,13 +88,15 @@ class App extends Component {
           name="Possible Cocktail"
           result={this.props.possibleCocktails}
         />
-        <Result name="Close Cocktail" result={this.props.closeCocktails} />
+        <Result name="Close Cocktail" result={this.props.closeCocktails} /> */}
       </React.Fragment>
     );
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
+
+export default App;
