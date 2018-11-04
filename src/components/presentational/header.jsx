@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../style/header.css";
 
 const Header = () => (
-  <header>
+  <header className="header">
     <h1>Cocktail Finder</h1>
     <nav>
       <ul>
