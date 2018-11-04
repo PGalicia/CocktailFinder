@@ -1,10 +1,21 @@
 import React from "react";
 import "../../style/displayCocktail.css";
+import Result from "../presentational/result";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    cocktails: state.cocktails
+  };
+};
 
 const DisplayCocktail = props => (
   <React.Fragment>
-    <p>Display Container Works</p>
+    <Result name="Cocktails" result={props.cocktails} />
   </React.Fragment>
 );
 
-export default DisplayCocktail;
+export default connect(
+  mapStateToProps,
+  null
+)(DisplayCocktail);
