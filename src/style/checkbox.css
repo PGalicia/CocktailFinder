@@ -1,12 +1,7 @@
 .filter-list {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(5, auto);
   grid-row-gap: 15px;
-}
-
-.filter-title {
-  margin: 0;
-  padding: 25px 10px;
 }
 
 .switch input[type="checkbox"] {

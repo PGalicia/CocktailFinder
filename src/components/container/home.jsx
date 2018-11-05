@@ -34,7 +34,7 @@ class Home extends Component {
   }
 
   setupCheckbox() {
-    let checkboxes = [...this.props.checkboxes];
+    let checkboxes = [];
     let count = 0;
 
     for (let id = count; id < this.props.alcohol.length; id++) {
