@@ -2,17 +2,14 @@ import React from "react";
 
 const SelectedContainer = props => (
   <React.Fragment>
-    <h4>{props.name}</h4>
     <ul>
-      {props.selected
-        .find(chosen => chosen.category === props.category)
-        .chosen.map(chosen => {
-          return (
-            <li key={chosen}>
-              <div>{chosen}</div>
-            </li>
-          );
-        })}
+      {props.selected.map(category => {
+        return category.chosen.map(chosen => (
+          <li key={chosen}>
+            <div>{chosen}</div>
+          </li>
+        ));
+      })}
     </ul>
   </React.Fragment>
 );

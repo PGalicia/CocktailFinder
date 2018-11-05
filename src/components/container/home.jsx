@@ -69,16 +69,7 @@ class Home extends Component {
       <React.Fragment>
         <Checklist />
         <h2>Selected:</h2>
-        <Selected
-          name="Liquor"
-          category="liquor"
-          selected={this.props.selected}
-        />
-        <Selected
-          name="Ingredients"
-          category="ingredients"
-          selected={this.props.selected}
-        />
+        <Selected selected={this.props.selected} />
         <h2>Result:</h2>
         <Result
           name="Possible Cocktail"
