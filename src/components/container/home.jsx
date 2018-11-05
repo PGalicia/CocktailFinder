@@ -65,11 +65,15 @@ class Home extends Component {
   }
 
   render() {
+    let notEmpty = !this.props.selected.every(
+      category => category.chosen.length === 0
+    );
+    console.log("notEmpty", notEmpty);
     return (
       <React.Fragment>
         <Checklist />
-        <h2>Selected:</h2>
-        <Selected selected={this.props.selected} />
+        {notEmpty && <Selected selected={this.props.selected} />}
+
         <h2>Result:</h2>
         <Result
           name="Possible Cocktail"
