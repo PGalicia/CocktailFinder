@@ -4,7 +4,7 @@ import DisplayCocktail from "./displayCocktail";
 import Home from "../container/home";
 import NotFound from "../presentational/notFound";
 import "../../style/main.css";
-import HOMEPATH from "../../constants/home-path";
+import { HOMEPATH } from "../../constants/home-path";
 
 const Main = () => (
   <main className="main">
