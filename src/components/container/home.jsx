@@ -72,14 +72,17 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Checklist />
-        {notEmpty && <Selected selected={this.props.selected} />}
-
-        <h2>Result:</h2>
-        <Result
-          name="Possible Cocktail"
-          result={this.props.possibleCocktails}
-        />
-        <Result name="Close Cocktail" result={this.props.closeCocktails} />
+        {notEmpty && (
+          <React.Fragment>
+            <Selected selected={this.props.selected} />
+            <h2>Result:</h2>
+            <Result
+              name="Possible Cocktail"
+              result={this.props.possibleCocktails}
+            />
+            <Result name="Close Cocktail" result={this.props.closeCocktails} />
+          </React.Fragment>
+        )}
       </React.Fragment>
     );
   }
