@@ -8,10 +8,12 @@ const Header = () => (
     <nav>
       <ul>
         <li>
-          <Link to={process.env.PUBLIC_URL + "/"}>Home</Link>
+          {/* <Link to={process.env.PUBLIC_URL + "/"}>Home</Link> */}
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to={process.env.PUBLIC_URL + "/cocktaildb"}>Cocktails</Link>
+          {/* <Link to={process.env.PUBLIC_URL + "/cocktaildb"}>Cocktails</Link> */}
+          <Link to="/cocktaildb">Cocktails</Link>
         </li>
       </ul>
     </nav>
