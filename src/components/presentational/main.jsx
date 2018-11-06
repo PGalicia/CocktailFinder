@@ -8,9 +8,11 @@ import "../../style/main.css";
 const Main = () => (
   <main className="main">
     <Switch>
-      <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
+      {/* <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} /> */}
+      <Route exact path="/" component={Home} />
       <Route
-        path={process.env.PUBLIC_URL + "/cocktaildb"}
+        // path={process.env.PUBLIC_URL + "/cocktaildb"}
+        path="/cocktaildb"
         component={DisplayCocktail}
       />
       <Route component={NotFound} />
