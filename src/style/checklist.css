@@ -54,11 +54,22 @@ input:checked + .toggle {
   z-index: -1;
 }
 
+.filter-title span,
 .filter-title h2 {
   position: absolute;
   color: #fff;
-  font-size: 35px;
   margin: 0;
+}
+
+.filter-title h2 {
   bottom: -8px;
   left: 50px;
+  font-size: 35px;
+}
+
+.filter-title span {
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
 }
