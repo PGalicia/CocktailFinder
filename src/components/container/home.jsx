@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../style/home.css";
 
 // Components - Container
 import Checklist from "./checklist";

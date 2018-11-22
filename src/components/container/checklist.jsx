@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../style/checklist.css";
+import "../../style/filterForm.css";
 
 // Redux
 import { connect } from "react-redux";
@@ -141,13 +141,13 @@ class Checklist extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
           <FilterChecklist
-            name="Liquor"
+            name="LIQUOR"
             category="liquor"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
           />
           <FilterChecklist
-            name="Ingredients"
+            name="INGREDIENTS"
             category="ingredient"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}

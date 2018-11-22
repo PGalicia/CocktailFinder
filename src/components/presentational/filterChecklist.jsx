@@ -1,10 +1,12 @@
 import React from "react";
-import "../../style/checkbox.css";
+import "../../style/checklist.css";
 
 const FilterChecklist = props => (
-  <React.Fragment>
-    <h2 className="filter-title">{props.name}</h2>
-    <div className="filter-list">
+  <div className="collapsible">
+    <div className="filter-title" id={props.category}>
+      <h2>{props.name}</h2>
+    </div>
+    {/* <div className="filter-list">
       {props.checkboxes
         .filter(checkbox => checkbox.category === props.category)
         .map(checkbox => {
@@ -22,8 +24,8 @@ const FilterChecklist = props => (
             </label>
           );
         })}
-    </div>
-  </React.Fragment>
+    </div> */}
+  </div>
 );
 
 export default FilterChecklist;

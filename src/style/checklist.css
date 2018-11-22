@@ -1,12 +1,64 @@
-.filter-button {
-  background-color: palegoldenrod;
-  border: none;
-  border-radius: 10%;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 2px;
-  margin-top: 25px;
+.collapsible {
+  width: 100%;
+}
+
+.filter-list {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-row-gap: 15px;
+}
+
+.switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle {
   cursor: pointer;
+  background-color: peru;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+input:checked + .toggle {
+  background-color: paleturquoise;
+}
+
+.filter-title#liquor,
+.filter-title#liquor:before {
+  background-color: #000;
+}
+
+.filter-title#ingredient,
+.filter-title#ingredient:before {
+  background-color: orange;
+}
+
+.filter-title {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  margin-bottom: 5px; /* Placeholder */
+}
+
+.filter-title:before {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.filter-title h2 {
+  position: absolute;
+  color: #fff;
+  font-size: 35px;
+  margin: 0;
+  bottom: -8px;
+  left: 50px;
 }
