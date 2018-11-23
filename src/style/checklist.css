@@ -9,21 +9,39 @@
   grid-row-gap: 15px;
 }
 
+.switch {
+  padding: 10px;
+}
+
 .switch input[type="checkbox"] {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.toggle {
-  cursor: pointer;
-  background-color: peru;
-  padding: 5px;
-  border-radius: 10%;
+.toggle::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: palegoldenrod;
+  right: -25px;
 }
 
-input:checked + .toggle {
-  background-color: paleturquoise;
+.toggle {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background-color: red;
+  color: #FFF;
+  height: 25px;
+}
+
+
+
+input:checked + .toggle,
+input:checked + .toggle::after {
+  background-color: green;
 }
 
 .filter-title#liquor,

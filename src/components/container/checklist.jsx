@@ -146,12 +146,12 @@ class Checklist extends Component {
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
           />
-          <FilterChecklist
+          {/* <FilterChecklist
             name="INGREDIENTS"
             category="ingredient"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
-          />
+          /> */}
 
           <button className="filter-button">Submit</button>
           <button className="filter-button" onClick={this.handleClear}>
