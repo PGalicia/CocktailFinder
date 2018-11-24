@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../style/checklist.css";
+import Checkbox from "./checkbox";
 
 class FilterChecklist extends Component {
   state = {
@@ -15,6 +16,8 @@ class FilterChecklist extends Component {
   toggleCollapsible() {
     this.setState({ isExpanded: !this.state.isExpanded });
   }
+
+  toggleCheckboxChangeStyle() {}
 
   render() {
     return (
@@ -37,20 +40,28 @@ class FilterChecklist extends Component {
               .filter(checkbox => checkbox.category === this.props.category)
               .map(checkbox => {
                 return (
-                  <label className="switch" key={checkbox.id}>
-                    <input
-                      id={checkbox.id}
-                      type="checkbox"
-                      value={checkbox.isChecked}
-                      name={checkbox.name}
-                      checked={checkbox.isChecked}
-                      onChange={this.props.handleChange}
-                    />
-                    <div className="toggle">
-                      <span id="sign">&#8722;</span>
-                      <span id="name">{checkbox.name}</span>
-                    </div>
-                  </label>
+                  <Checkbox
+                    key={checkbox.id}
+                    id={checkbox.id}
+                    value={checkbox.isChecked}
+                    name={checkbox.name}
+                    checked={checkbox.isChecked}
+                    onChange={this.props.handleChange}
+                  />
+                  // <label className="switch" key={checkbox.id}>
+                  //   <input
+                  //     id={checkbox.id}
+                  //     type="checkbox"
+                  //     value={checkbox.isChecked}
+                  //     name={checkbox.name}
+                  //     checked={checkbox.isChecked}
+                  //     onChange={this.props.handleChange}
+                  //   />
+                  //   <div className="toggle">
+                  //     <span id="sign">&#8722;</span>
+                  //     <span id="name">{checkbox.name}</span>
+                  //   </div>
+                  // </label>
                 );
               })}
           </div>

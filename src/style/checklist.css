@@ -9,58 +9,6 @@
   grid-row-gap: 15px;
 }
 
-.switch {
-  padding: 10px;
-}
-
-.switch input[type="checkbox"] {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle {
-  position: relative;
-  height: 25px;
-  display: inline-block;
-  background-color: red;
-  box-shadow: 0 5px 2px -2px grey;
-  color: white;
-}
-
-.toggle::before {
-  position: absolute;
-  content: "";
-  background-color: red;
-  width: 25px;
-  height: 25px;
-  right: -25px;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  z-index: -1;
-  box-shadow: -5px 5px 2px -2px grey;
-}
-
-.toggle span {
-  position: relative;
-  display: inline-block;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.toggle #sign {
-  left: 5px;
-}
-
-.toggle #name {
-  left: 10px;
-}
-
-input:checked + .toggle,
-input:checked + .toggle::before {
-  background-color: green;
-}
-
 .filter-title#liquor,
 .filter-title#liquor:before {
   background-color: #000;
