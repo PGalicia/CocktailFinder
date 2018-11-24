@@ -19,28 +19,45 @@
   height: 0;
 }
 
-.toggle::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: palegoldenrod;
-  right: -25px;
-}
-
 .toggle {
-  cursor: pointer;
   position: relative;
+  height: 25px;
   display: inline-block;
   background-color: red;
-  color: #FFF;
-  height: 25px;
+  box-shadow: 0 5px 2px -2px grey;
+  color: white;
 }
 
+.toggle::before {
+  position: absolute;
+  content: "";
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  right: -25px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  z-index: -1;
+  box-shadow: -5px 5px 2px -2px grey;
+}
 
+.toggle span {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle #sign {
+  left: 5px;
+}
+
+.toggle #name {
+  left: 10px;
+}
 
 input:checked + .toggle,
-input:checked + .toggle::after {
+input:checked + .toggle::before {
   background-color: green;
 }
 

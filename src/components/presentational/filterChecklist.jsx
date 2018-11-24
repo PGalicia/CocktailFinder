@@ -46,7 +46,10 @@ class FilterChecklist extends Component {
                       checked={checkbox.isChecked}
                       onChange={this.props.handleChange}
                     />
-                    <span className="toggle">{checkbox.name}</span>
+                    <div className="toggle">
+                      <span id="sign">&#8722;</span>
+                      <span id="name">{checkbox.name}</span>
+                    </div>
                   </label>
                 );
               })}
