@@ -5,6 +5,7 @@
 
 .filter-list {
   display: grid;
+  margin: 15px auto;
   grid-template-columns: repeat(5, auto);
   grid-row-gap: 15px;
 }

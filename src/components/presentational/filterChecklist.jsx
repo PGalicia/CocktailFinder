@@ -42,26 +42,9 @@ class FilterChecklist extends Component {
                 return (
                   <Checkbox
                     key={checkbox.id}
-                    id={checkbox.id}
-                    value={checkbox.isChecked}
-                    name={checkbox.name}
-                    checked={checkbox.isChecked}
-                    onChange={this.props.handleChange}
+                    checkbox={checkbox}
+                    handleChange={this.props.handleChange}
                   />
-                  // <label className="switch" key={checkbox.id}>
-                  //   <input
-                  //     id={checkbox.id}
-                  //     type="checkbox"
-                  //     value={checkbox.isChecked}
-                  //     name={checkbox.name}
-                  //     checked={checkbox.isChecked}
-                  //     onChange={this.props.handleChange}
-                  //   />
-                  //   <div className="toggle">
-                  //     <span id="sign">&#8722;</span>
-                  //     <span id="name">{checkbox.name}</span>
-                  //   </div>
-                  // </label>
                 );
               })}
           </div>
