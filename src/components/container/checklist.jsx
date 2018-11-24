@@ -141,7 +141,7 @@ class Checklist extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
           <FilterChecklist
-            name="LIQUOR"
+            name="ALCOHOL"
             category="liquor"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
