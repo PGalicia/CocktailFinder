@@ -12,22 +12,22 @@
   position: relative;
   height: 25px;
   display: inline-block;
-  background-color: #ff1e1e;
-  box-shadow: 0 5px 2px -2px grey;
+  background-color: #1175bc;
   color: white;
+  /* box-shadow: 0 5px 2px -2px grey; */
 }
 
 .toggle::before {
   position: absolute;
   content: "";
-  background-color: #ff1e1e;
+  background-color: #1175bc;
   width: 25px;
   height: 25px;
   right: -25px;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   z-index: -1;
-  box-shadow: -5px 5px 2px -2px grey;
+  /* box-shadow: -5px 5px 2px -2px grey; */
 }
 
 .toggle span {
@@ -47,5 +47,5 @@
 
 input:checked + .toggle,
 input:checked + .toggle::before {
-  background-color: limegreen;
+  background-color: #f26522;
 }

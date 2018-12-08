@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Grenadier;
+  src: url(../assests/fonts/GrenadierNF.ttf);
+}
+
+body {
+  background-color: rgb(245, 242, 223);
+  z-index: -5;
+}

@@ -12,20 +12,21 @@
 
 .filter-title#liquor,
 .filter-title#liquor:before {
-  background-color: #000;
+  background-color: #e35f20;
 }
 
 .filter-title#ingredient,
 .filter-title#ingredient:before {
-  background-color: orange;
+  background-color: #000;
 }
 
 .filter-title {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 60px;
   margin: 0;
   margin-bottom: 5px; /* maybe a placeholder */
+  font-family: Grenadier;
 }
 
 .filter-title:before {
@@ -47,9 +48,11 @@
 }
 
 .filter-title h2 {
-  bottom: -8px;
-  left: 50px;
-  font-size: 35px;
+  bottom: -5px;
+  /* left: 0; */
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-weight: normal;
 }
 
 .filter-title span {

@@ -69,7 +69,6 @@ class Home extends Component {
     let notEmpty = !this.props.selected.every(
       category => category.chosen.length === 0
     );
-    console.log("notEmpty", notEmpty);
     return (
       <React.Fragment>
         <Checklist />

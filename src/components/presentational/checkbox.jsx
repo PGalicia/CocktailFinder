@@ -33,7 +33,7 @@ class Checkbox extends Component {
               ? String.fromCharCode(8722)
               : String.fromCharCode(43)}
           </span>
-          <span id="name">{this.props.checkbox.name}</span>
+          <span id="name">{this.props.checkbox.name.toLowerCase()}</span>
         </div>
       </label>
     );

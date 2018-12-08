@@ -1,4 +1,5 @@
 import React from "react";
+import "../../style/App.css";
 
 // Components - Presentational
 import Header from "./header";
