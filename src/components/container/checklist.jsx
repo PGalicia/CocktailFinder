@@ -145,12 +145,14 @@ class Checklist extends Component {
             category="liquor"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
+            isExpanded={false}
           />
           <FilterChecklist
             name="INGREDIENTS"
             category="ingredient"
             checkboxes={this.props.checkboxes}
             handleChange={this.handleChange}
+            isExpanded={true}
           />
 
           <button className="filter-button">Submit</button>

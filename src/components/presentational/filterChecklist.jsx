@@ -4,13 +4,17 @@ import Checkbox from "./checkbox";
 
 class FilterChecklist extends Component {
   state = {
-    isExpanded: false
+    isExpanded: null
   };
 
   constructor() {
     super();
 
     this.toggleCollapsible = this.toggleCollapsible.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ isExpanded: this.props.isExpanded });
   }
 
   toggleCollapsible() {
