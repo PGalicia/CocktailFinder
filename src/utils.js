@@ -13,11 +13,3 @@ export const retrieveIngredients = cocktails => {
     }
     return [...new Set(ingredient)].sort();
 }
-
-export const calculateWidth = string => {
-  const length = string.length * 15;
-  return {
-    width: `${length}px`,
-    maxWidth: "150px"
-  }
-}

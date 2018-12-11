@@ -1,62 +1,64 @@
 import React from "react";
 import "../../style/result.css";
-import { calculateWidth } from "../../utils";
 
 const ResultContainer = props => {
-  // const alcoholLength = calculateWidth(cocktail.alcohol.join(", "));
   return (
     <React.Fragment>
       <h4>{props.name}</h4>
       <div className="cocktail-list">
         {props.result.map(cocktail => {
+          // console.log(cocktail.ingredients);
+
           return (
             <div key={cocktail.name} className="cocktail-card">
-              {/* <div className="cocktail-img" />
-                <div className="cocktail-name">{cocktail.name}</div>
-                <h5 className="cocktail-card-category">Alcohol:</h5>
-                <ul className="cocktail-alcohol">
-                  {cocktail.alcohol.map(alcohol => {
-                    return <li key={alcohol}>{alcohol}</li>;
-                  })}
-                </ul>
-                <h5 className="cocktail-card-category">Garnish:</h5>
-                <ul className="cocktail-garnish">
-                  {cocktail.garnish.map(garnish => {
-                    return <li key={garnish}>{garnish}</li>;
-                  })}
-                </ul>
-                <h5 className="cocktail-card-category">Ingredients:</h5>
-                <ul className="cocktail-ingredients">
-                  {cocktail.ingredients.map(ingredient => {
-                    return <li key={ingredient}>{ingredient}</li>;
-                  })}
-                </ul> */}
               <h2>{cocktail.name}</h2>
               <div className="cocktail-name">
-                <div className="label" id="dotted">
-                  Alcohol
+                {/* <div className="label">Alcohol</div> */}
+                <p className="label">Alcohol</p>
+                <div className="item-list">
+                  {cocktail.alcohol.map(alc => {
+                    return (
+                      <div className="text">
+                        <p>{alc.toLowerCase()}</p>
+                        <span className="dotted" />
+                      </div>
+                      // <p
+                      //   key={alc}
+                      //   className="text"
+                      //   // style={{ backgroundColor: "skyblue" }}
+                      // >
+                      //   <span>{alc.toLowerCase()}</span>
+                      // </p>
+                    );
+                  })}
                 </div>
-                <div className="text">
-                  <p>{cocktail.alcohol.join(", ")}</p>
-                </div>
+                {/* <p className="text">
+                  {cocktail.alcohol.join(", ").toLowerCase()}
+                </p> */}
               </div>
-              <div className="cocktail-garnish">
+              {/* <div className="cocktail-garnish">
                 <div className="label" id="dotted">
                   Garnish
                 </div>
-                <div className="text">
-                  <p>{cocktail.garnish.join(", ")}</p>
-                </div>
+                {cocktail.garnish.length === 0 ? (
+                  <p className="text">
+                    <i>n/a</i>
+                  </p>
+                ) : (
+                  <p className="text">
+                    {cocktail.garnish.join(", ").toLowerCase()}
+                  </p>
+                )}
               </div>
               <div className="cocktail-ingredients">
                 <div className="label" id="dotted">
                   Ingredients
                 </div>
-                <div className="text">
-                  <p>{cocktail.ingredients.join(", ")}</p>
-                </div>
+                <p className="text">
+                  {cocktail.ingredients.join(", ").toLowerCase()}
+                </p>
               </div>
-              <hr />
+              <hr /> */}
             </div>
           );
         })}
