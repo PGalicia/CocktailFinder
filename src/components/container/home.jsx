@@ -8,6 +8,7 @@ import Checklist from "./checklist";
 import Selected from "../presentational/selected";
 import Result from "../presentational/result";
 import Greeting from "../presentational/greeting";
+import FilterResult from "../presentational/filterResult";
 
 // Redux
 import { connect } from "react-redux";
@@ -71,10 +72,10 @@ class Home extends Component {
       category => category.chosen.length === 0
     );
     return (
-      <React.Fragment>
+      <div className="home-container">
         {/* <Checklist /> */}
-        {/* <Result name="Cocktails" result={this.props.cocktails} /> */}
-        <Greeting />
+        {/* <Result name="n/a" result={this.props.cocktails} /> */}
+        {/* <Greeting /> */}
         {/* {notEmpty && (
           <React.Fragment>
             <Selected selected={this.props.selected} />
@@ -86,7 +87,30 @@ class Home extends Component {
             <Result name="Close Cocktail" result={this.props.closeCocktails} />
           </React.Fragment>
         )} */}
-      </React.Fragment>
+        {/* <Selected selected={this.props.selected} /> */}
+        <div className="box">
+          <p>
+            Lorem ipsum dolor sit amet, te aliquam instructior vis. No ius
+            equidem delectus, sit denique constituam theophrastus in. Animal
+            nostrum vel te, alia omnis has ea, cu eum oblique suscipit. Cu nulla
+            deserunt hendrerit mea, putant theophrastus qui ex. Cum eu prima
+            accumsan, ne labores lobortis sit.
+          </p>
+          <p>
+            Mel purto dolorum definitionem ad. Mei no dictas qualisque
+            maiestatis, eum eu munere prompta nominati. Pro et modo reque
+            reprimique. Ipsum dicunt at mel, vis in choro possit.
+          </p>
+        </div>
+        <FilterResult
+          name="you can make"
+          result={this.props.possibleCocktails}
+        />
+        <FilterResult
+          name="you can almost make"
+          result={this.props.closeCocktails}
+        />
+      </div>
     );
   }
 }

@@ -1,0 +1,47 @@
+.cocktail-card {
+  width: 350px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cocktail-card > div {
+  margin: 10px 0;
+}
+
+.cocktail-name,
+.cocktail-garnish,
+.cocktail-ingredients {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  height: 100%;
+  padding-right: 5px;
+  background-color: skyblue;
+  background-color: rgb(245, 242, 223);
+}
+
+.item-list {
+  text-align: right;
+  position: relative;
+  width: 100%;
+}
+
+.dotted::before {
+  content: ".............................................................................";
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.text p {
+  margin: 0;
+  background-color: red;
+  padding-left: 5px;
+  display: inline-block;
+  z-index: 2;
+  background-color: rgb(245, 242, 223);
+}

@@ -1,0 +1,8 @@
+.filter-result-container {
+  /* background-color: skyblue; */
+  text-align: center;
+}
+
+.filter-result-list {
+  overflow-y: scroll;
+}
