@@ -7,6 +7,7 @@ import Checklist from "./checklist";
 // Components - Presentational
 import Selected from "../presentational/selected";
 import Result from "../presentational/result";
+import Greeting from "../presentational/greeting";
 
 // Redux
 import { connect } from "react-redux";
@@ -72,7 +73,8 @@ class Home extends Component {
     return (
       <React.Fragment>
         {/* <Checklist /> */}
-        <Result name="Cocktails" result={this.props.cocktails} />
+        {/* <Result name="Cocktails" result={this.props.cocktails} /> */}
+        <Greeting />
         {/* {notEmpty && (
           <React.Fragment>
             <Selected selected={this.props.selected} />

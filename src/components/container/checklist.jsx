@@ -140,6 +140,7 @@ class Checklist extends Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
+          <h1>Cocktail Finder</h1>
           <FilterChecklist
             name="ALCOHOL"
             category="liquor"

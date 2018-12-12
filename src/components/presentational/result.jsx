@@ -4,7 +4,7 @@ import "../../style/result.css";
 const ResultContainer = props => {
   return (
     <React.Fragment>
-      <h4>{props.name}</h4>
+      {/* <h4>{props.name}</h4> */}
       <div className="cocktail-list">
         {props.result.map(cocktail => {
           return (
