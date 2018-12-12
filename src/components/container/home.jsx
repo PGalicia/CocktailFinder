@@ -71,7 +71,7 @@ class Home extends Component {
     );
     return (
       <React.Fragment>
-        <Checklist />
+        {/* <Checklist /> */}
         <Result name="Cocktails" result={this.props.cocktails} />
         {/* {notEmpty && (
           <React.Fragment>

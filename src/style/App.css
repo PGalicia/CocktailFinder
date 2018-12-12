@@ -7,3 +7,9 @@ body {
   background-color: rgb(245, 242, 223);
   z-index: -5;
 }
+
+#root {
+  display: grid;
+  grid-template-columns: 600px auto;
+  grid-gap: 0 25px;
+}

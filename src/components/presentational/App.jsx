@@ -5,9 +5,12 @@ import "../../style/App.css";
 import Header from "./header";
 import Main from "./main";
 
+import Checklist from "../container/checklist";
+
 const App = () => (
   <React.Fragment>
-    <Header />
+    {/* <Header /> */}
+    <Checklist />
     <Main />
   </React.Fragment>
 );
