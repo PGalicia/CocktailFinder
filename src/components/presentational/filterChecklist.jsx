@@ -28,7 +28,7 @@ class FilterChecklist extends Component {
       <div className="collapsible">
         <div
           className="filter-title"
-          id={this.props.category}
+          // id={this.props.category}
           onClick={this.toggleCollapsible}
           style={
             this.state.isExpanded
@@ -44,7 +44,7 @@ class FilterChecklist extends Component {
           </span>
         </div>
         {!this.state.isExpanded && (
-          <div className="filter-list">
+          <div className="filter-list" id={this.props.category}>
             {this.props.checkboxes
               .filter(checkbox => checkbox.category === this.props.category)
               .map(checkbox => {

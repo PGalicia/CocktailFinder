@@ -41,6 +41,16 @@
   cursor: pointer;
 }
 
+#ingredient {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+#ingredient .switch {
+  margin: 10px;
+}
+
 /* .filter-title:before {
   content: "";
   background-color: #000;
