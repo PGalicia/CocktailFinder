@@ -1,6 +1,6 @@
-.collapsible {
+/* .collapsible {
   cursor: pointer;
-}
+} */
 
 .filter-list {
   position: relative;
@@ -38,6 +38,7 @@
   margin: 0;
   margin-bottom: 5px; /* maybe a placeholder */
   font-family: Grenadier;
+  cursor: pointer;
 }
 
 /* .filter-title:before {

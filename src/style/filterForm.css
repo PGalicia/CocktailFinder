@@ -1,3 +1,16 @@
+.filter-form {
+  background-color: rgb(245, 242, 223);
+}
+
+.title {
+  background-color: skyblue;
+  height: 150px;
+}
+
+.title h1 {
+  margin: 0;
+}
+
 .filter-button {
   background-color: palegoldenrod;
   border: none;

@@ -7,7 +7,6 @@
 
 .box {
   height: 100px;
-  background-color: skyblue;
   grid-column: span 2;
   position: relative;
   border: 5px solid #000;
@@ -17,4 +16,8 @@
 .box {
   display: grid;
   grid-template-columns: repeat(2, auto);
+}
+
+.box p {
+  margin: 15px;
 }

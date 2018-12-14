@@ -20,8 +20,8 @@
   z-index: 1;
   height: 100%;
   padding-right: 5px;
-  background-color: skyblue;
-  background-color: rgb(245, 242, 223);
+  /* background-color: rgb(245, 242, 223); */
+  background-color: #f6d8ab;
 }
 
 .item-list {
@@ -39,9 +39,9 @@
 
 .text p {
   margin: 0;
-  background-color: red;
+  /* background-color: red; */
   padding-left: 5px;
   display: inline-block;
   z-index: 2;
-  background-color: rgb(245, 242, 223);
+  background-color: #f6d8ab;
 }

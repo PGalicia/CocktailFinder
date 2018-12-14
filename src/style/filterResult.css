@@ -1,8 +1,33 @@
 .filter-result-container {
   /* background-color: skyblue; */
   text-align: center;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.filter-result-container h2 {
+  /* color: cadetblue;
+  text-shadow: 2px 2px grey;
+  font-size: 40px;
+  font-style: italic;
+  width: 275px;
+  margin: auto; */
+}
+
+.filter-result-title {
+  color: cadetblue;
+  text-shadow: 2px 2px grey;
+  font-size: 40px;
+  font-style: italic;
+  width: 275px;
+  margin: auto;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-result-list {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
