@@ -10,19 +10,20 @@
 
 .toggle {
   position: relative;
-  height: 25px;
+  height: 30px;
   display: inline-block;
-  background-color: #1175bc;
+  background-color: #000;
   color: white;
+  min-width: 70px;
   /* box-shadow: 0 5px 2px -2px grey; */
 }
 
 .toggle::before {
   position: absolute;
   content: "";
-  background-color: #1175bc;
+  background-color: #000;
   width: 25px;
-  height: 25px;
+  height: 30px;
   right: -25px;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;

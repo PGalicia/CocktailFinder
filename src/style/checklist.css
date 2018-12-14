@@ -1,12 +1,15 @@
 .collapsible {
-  width: 100%;
   cursor: pointer;
 }
 
 .filter-list {
+  position: relative;
+  width: 80%;
+  justify-items: center;
+  margin: 25px;
   display: grid;
-  margin: 15px auto;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-auto-rows: 35px;
   grid-row-gap: 15px;
 }
 
@@ -20,13 +23,13 @@
   background-color: #000;
 } */
 
-.filter-title#liquor {
+/* .filter-title#liquor {
   background-color: #e35f20;
 }
 
 .filter-title#ingredient {
   background-color: #000;
-}
+} */
 
 .filter-title {
   position: relative;
@@ -57,7 +60,7 @@
 
 .filter-title h2 {
   bottom: -5px;
-  /* left: 0; */
+  left: 25px;
   font-size: 50px;
   letter-spacing: 5px;
   font-weight: normal;

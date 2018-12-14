@@ -11,6 +11,7 @@ body {
 
 #root {
   display: grid;
-  grid-template-columns: 600px auto;
+  grid-template-columns: 450px auto;
   grid-gap: 0 25px;
+  position: relative;
 }

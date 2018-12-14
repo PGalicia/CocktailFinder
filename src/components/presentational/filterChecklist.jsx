@@ -30,6 +30,11 @@ class FilterChecklist extends Component {
           className="filter-title"
           id={this.props.category}
           onClick={this.toggleCollapsible}
+          style={
+            this.state.isExpanded
+              ? { backgroundColor: "black" }
+              : { backgroundColor: "#e35f20" }
+          }
         >
           <h2>{this.props.name}</h2>
           <span>

@@ -1,7 +1,8 @@
 export const COCKTAILS = [
   {
     name: "Alexander",
-    alcohol: ["Cognac", "Creme De Cacao"],
+    // alcohol: ["Cognac", "Creme De Cacao"],
+    alcohol: ["Cognac", "Cacao"],
     ingredients: ["cream"],
     garnish: ["nutmeg"],
     preparation: "Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.",
@@ -177,7 +178,8 @@ export const COCKTAILS = [
   },
   {
     name: "Rusty Nail",
-    alcohol: ["Scotch Whisky"],
+    // alcohol: ["Scotch Whisky"],
+    alcohol: ["Whisky"],
     ingredients: ["drambuie"],
     garnish: ["lemon twist"],
     preparation: "Pour all ingredients directly into old-fashioned glass filled with ice. Stir gently. Garnish with a lemon twist. Serve.",
