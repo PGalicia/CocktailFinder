@@ -4,13 +4,15 @@ import {
     CHECKBOXES_CHANGE,
     SELECTED_CHECKBOXES,
     UPDATE_CLOSE_COCKTAIL,
-    UPDATE_POSSIBLE_COCKTAIL
+    UPDATE_POSSIBLE_COCKTAIL,
+    CLOSE_GREETING_MESSAGE
 } from "../constants/action-types";
 
 const initialState = {
     cocktails: COCKTAILS,
     alcohol: retrieveAlcohol(COCKTAILS),
     ingredients: retrieveIngredients(COCKTAILS),
+    isGreetOpen: true,
     closeCocktails: [],
     possibleCocktails: [],
     checkboxes: [],
@@ -30,6 +32,8 @@ const rootReducer = ( state = initialState, action ) => {
             return { ...state, closeCocktails: action.payload };
         case UPDATE_POSSIBLE_COCKTAIL:
             return { ...state, possibleCocktails: action.payload };
+        case CLOSE_GREETING_MESSAGE:
+            return { ...state, isGreetOpen: action.payload };
         default:
             return state;
     }

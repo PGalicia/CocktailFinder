@@ -9,11 +9,7 @@ const mapStateToProps = state => {
   };
 };
 
-const DisplayCocktail = props => (
-  <React.Fragment>
-    <Result name="n/a" result={props.cocktails} />
-  </React.Fragment>
-);
+const DisplayCocktail = props => <Result name="n/a" result={props.cocktails} />;
 
 export default connect(
   mapStateToProps,

@@ -1,8 +1,17 @@
 import React from "react";
 import "../../style/greeting.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Greeting = () => {
+import { closeGreetingMessage } from "../../actions";
+
+const mapDispatchToProps = dispatch => {
+  return {
+    closeGreetingMessage: bool => dispatch(closeGreetingMessage(bool))
+  };
+};
+
+const Greeting = props => {
   return (
     <div className="greeting-container">
       <div className="greeting-card">
@@ -27,12 +36,14 @@ const Greeting = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <button>
-          <Link to="/cocktaildb">ok!</Link>
-        </button>
+        <button onClick={() => props.closeGreetingMessage(false)}>ok!</button>
       </div>
     </div>
   );
 };
 
-export default Greeting;
+// export default Greeting;
+export default connect(
+  null,
+  mapDispatchToProps
+)(Greeting);
