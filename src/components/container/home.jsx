@@ -8,7 +8,8 @@ import Checklist from "./checklist";
 import Selected from "../presentational/selected";
 import Result from "../presentational/result";
 import Greeting from "../presentational/greeting";
-import FilterResult from "../presentational/filterResult";
+// import FilterResult from "../presentational/filterResult";
+import ResultContainer from "../presentational/result";
 
 // Redux
 import { connect } from "react-redux";
@@ -25,47 +26,47 @@ const mapDispatchToProps = dispatch => {
 };
 
 class Home extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    // Checkbox Setup
-    this.setupCheckbox = this.setupCheckbox.bind(this);
-  }
+  //   // Checkbox Setup
+  //   this.setupCheckbox = this.setupCheckbox.bind(this);
+  // }
 
-  componentDidMount() {
-    this.setupCheckbox();
-  }
+  // componentDidMount() {
+  //   // this.setupCheckbox();
+  // }
 
-  setupCheckbox() {
-    let checkboxes = [];
-    let count = 0;
+  // setupCheckbox() {
+  //   let checkboxes = [];
+  //   let count = 0;
 
-    for (let id = count; id < this.props.alcohol.length; id++) {
-      let key = this.props.alcohol[id];
-      let template = {
-        id: id,
-        category: "liquor",
-        name: key,
-        isChecked: false
-      };
-      checkboxes.push(template);
-      count++;
-    }
+  //   for (let id = count; id < this.props.alcohol.length; id++) {
+  //     let key = this.props.alcohol[id];
+  //     let template = {
+  //       id: id,
+  //       category: "liquor",
+  //       name: key,
+  //       isChecked: false
+  //     };
+  //     checkboxes.push(template);
+  //     count++;
+  //   }
 
-    for (let id = 0; id < this.props.ingredients.length; id++) {
-      let key = this.props.ingredients[id];
-      let template = {
-        id: count,
-        category: "ingredient",
-        name: key,
-        isChecked: false
-      };
-      checkboxes.push(template);
-      count++;
-    }
+  //   for (let id = 0; id < this.props.ingredients.length; id++) {
+  //     let key = this.props.ingredients[id];
+  //     let template = {
+  //       id: count,
+  //       category: "ingredient",
+  //       name: key,
+  //       isChecked: false
+  //     };
+  //     checkboxes.push(template);
+  //     count++;
+  //   }
 
-    this.props.handleCheckboxes(checkboxes);
-  }
+  //   this.props.handleCheckboxes(checkboxes);
+  // }
 
   render() {
     let notEmpty = !this.props.selected.every(
@@ -73,9 +74,10 @@ class Home extends Component {
     );
     return (
       <div className="home-container">
-        {/* <Checklist /> */}
-        {/* <Result name="n/a" result={this.props.cocktails} /> */}
-        {/* <Greeting /> */}
+        <ResultContainer
+          possible={this.props.possibleCocktails}
+          close={this.props.closeCocktails}
+        />
         {/* {notEmpty && (
           <React.Fragment>
             <Selected selected={this.props.selected} />
@@ -88,7 +90,7 @@ class Home extends Component {
           </React.Fragment>
         )} */}
         {/* <Selected selected={this.props.selected} /> */}
-        <div className="box">
+        {/* <div className="box">
           <p>
             Lorem ipsum dolor sit amet, te aliquam instructior vis. No ius
             equidem delectus, sit denique constituam theophrastus in. Animal
@@ -109,7 +111,7 @@ class Home extends Component {
         <FilterResult
           name="you can almost make"
           result={this.props.closeCocktails}
-        />
+        /> */}
       </div>
     );
   }

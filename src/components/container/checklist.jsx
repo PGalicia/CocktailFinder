@@ -17,7 +17,9 @@ const mapStateToProps = state => {
   return {
     checkboxes: state.checkboxes,
     selected: state.selected,
-    cocktails: state.cocktails
+    cocktails: state.cocktails,
+    alcohol: state.alcohol,
+    ingredients: state.ingredients
   };
 };
 
@@ -41,6 +43,44 @@ class Checklist extends Component {
 
     // Other
     this.findCocktails = this.findCocktails.bind(this);
+
+    // Checkbox Setup
+    this.setupCheckbox = this.setupCheckbox.bind(this);
+  }
+
+  componentDidMount() {
+    this.setupCheckbox();
+  }
+
+  setupCheckbox() {
+    let checkboxes = [];
+    let count = 0;
+
+    for (let id = count; id < this.props.alcohol.length; id++) {
+      let key = this.props.alcohol[id];
+      let template = {
+        id: id,
+        category: "liquor",
+        name: key,
+        isChecked: false
+      };
+      checkboxes.push(template);
+      count++;
+    }
+
+    for (let id = 0; id < this.props.ingredients.length; id++) {
+      let key = this.props.ingredients[id];
+      let template = {
+        id: count,
+        category: "ingredient",
+        name: key,
+        isChecked: false
+      };
+      checkboxes.push(template);
+      count++;
+    }
+
+    this.props.handleCheckboxes(checkboxes);
   }
 
   handleSubmit(e) {
