@@ -1,3 +1,7 @@
+/*
+  Description: The not found page.
+*/
+
 import React from "react";
 
 const NotFound = () => (

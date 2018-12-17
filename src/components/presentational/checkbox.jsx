@@ -1,3 +1,8 @@
+/* 
+  Description: Change form item (ie alcohol and ingredients)
+    into checkbox.
+*/
+
 import React, { Component } from "react";
 import "../../style/checkbox.css";
 

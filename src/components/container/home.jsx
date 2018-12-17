@@ -1,15 +1,13 @@
+/*
+  Description: The default page
+*/
+
 import React, { Component } from "react";
 import "../../style/home.css";
 
-// Components - Container
-import Checklist from "./checklist";
-
 // Components - Presentational
-import Selected from "../presentational/selected";
 import Result from "../presentational/result";
 import Greeting from "../presentational/greeting";
-// import FilterResult from "../presentational/filterResult";
-import ResultContainer from "../presentational/result";
 
 // Redux
 import { connect } from "react-redux";
@@ -26,118 +24,19 @@ const mapDispatchToProps = dispatch => {
 };
 
 class Home extends Component {
-  // state = {
-  //   isGreetOpen: true
-  // }
-
-  // constructor() {
-  //   super();
-
-  //   // Checkbox Setup
-  //   // this.setupCheckbox = this.setupCheckbox.bind(this);
-  //   this.closeGreetingMessage = this.closeGreetingMessage.bind(this);
-  // }
-
-  // closeGreetingMessage() {
-  //   this.setState({isGreetOpen: false});
-  // }
-
-  // componentDidMount() {
-  //   // this.setupCheckbox();
-  // }
-
-  // setupCheckbox() {
-  //   let checkboxes = [];
-  //   let count = 0;
-
-  //   for (let id = count; id < this.props.alcohol.length; id++) {
-  //     let key = this.props.alcohol[id];
-  //     let template = {
-  //       id: id,
-  //       category: "liquor",
-  //       name: key,
-  //       isChecked: false
-  //     };
-  //     checkboxes.push(template);
-  //     count++;
-  //   }
-
-  //   for (let id = 0; id < this.props.ingredients.length; id++) {
-  //     let key = this.props.ingredients[id];
-  //     let template = {
-  //       id: count,
-  //       category: "ingredient",
-  //       name: key,
-  //       isChecked: false
-  //     };
-  //     checkboxes.push(template);
-  //     count++;
-  //   }
-
-  //   this.props.handleCheckboxes(checkboxes);
-  // }
-
   render() {
-    // let notEmpty = !this.props.selected.every(
-    //   category => category.chosen.length === 0
-    // );
     return (
       <React.Fragment>
         {this.props.isGreetOpen === false ? (
-          // <ResultContainer
-          //   possible={this.props.possibleCocktails}
-          //   close={this.props.closeCocktails}
-          // />
-          <Result name="n/a" result={this.props.cocktails} />
+          <Result
+            possible={this.props.possibleCocktails}
+            close={this.props.closeCocktails}
+          />
         ) : (
+          // <Result name="n/a" result={this.props.cocktails} />
           <Greeting />
         )}
       </React.Fragment>
-      // <div className="home-container">
-      //   {!this.props.isGreetOpen ? (
-      //     <ResultContainer
-      //       possible={this.props.possibleCocktails}
-      //       close={this.props.closeCocktails}
-      //     />
-      //   ) : (
-      //     <Greeting />
-      //   )}
-
-      //   {/* {notEmpty && (
-      //     <React.Fragment>
-      //       <Selected selected={this.props.selected} />
-      //       <h2>Result:</h2>
-      //       <Result
-      //         name="Possible Cocktail"
-      //         result={this.props.possibleCocktails}
-      //       />
-      //       <Result name="Close Cocktail" result={this.props.closeCocktails} />
-      //     </React.Fragment>
-      //   )} */}
-      //   {/* <Selected selected={this.props.selected} /> */}
-      //   {/* <div className="box">
-      //     <p>
-      //       Lorem ipsum dolor sit amet, te aliquam instructior vis. No ius
-      //       equidem delectus, sit denique constituam theophrastus in. Animal
-      //       nostrum vel te, alia omnis has ea, cu eum oblique suscipit. Cu nulla
-      //       deserunt hendrerit mea, putant theophrastus qui ex. Cum eu prima
-      //       accumsan, ne labores lobortis sit.
-      //     </p>
-      //     <p>
-      //       Mel purto dolorum definitionem ad. Mei no dictas qualisque
-      //       maiestatis, eum eu munere prompta nominati. Pro et modo reque
-      //       reprimique. Ipsum dicunt at mel, vis in choro possit.
-      //     </p>
-      //   </div>
-      //   <FilterResult
-      //     name="you can make"
-      //     result={this.props.possibleCocktails}
-      //   />
-      //   <FilterResult
-      //     name="you can almost make"
-      //     result={this.props.closeCocktails}
-      //   /> */}
-      // </div>
     );
   }
 }

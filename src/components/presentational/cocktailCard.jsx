@@ -1,3 +1,7 @@
+/*
+  Description: Cards that displays cocktail's information
+*/
+
 import React from "react";
 import "../../style/cocktailCard.css";
 

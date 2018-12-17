@@ -1,6 +1,11 @@
+/*
+  Description: The greeting page
+*/
+
 import React from "react";
 import "../../style/greeting.css";
-import { Link } from "react-router-dom";
+
+// Redux
 import { connect } from "react-redux";
 
 import { closeGreetingMessage } from "../../actions";

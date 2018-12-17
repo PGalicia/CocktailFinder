@@ -1,17 +1,23 @@
-import React from "react";
-import "../../style/displayCocktail.css";
-import Result from "../presentational/result";
-import { connect } from "react-redux";
+/*
+    Description: List all cocktails
+*/
 
-const mapStateToProps = state => {
-  return {
-    cocktails: state.cocktails
-  };
+import React from "react";
+
+// Container Component
+import CocktailCard from "../presentational/cocktailCard";
+
+const DisplayCocktail = props => {
+  return (
+    <div className="cocktail-container">
+      {props.name !== "n/a" ? <h4>{props.name}</h4> : null}
+      <div className="cocktail-list">
+        {props.result.map(cocktail => {
+          return <CocktailCard cocktail={cocktail} />;
+        })}
+      </div>
+    </div>
+  );
 };
 
-const DisplayCocktail = props => <Result name="n/a" result={props.cocktails} />;
-
-export default connect(
-  mapStateToProps,
-  null
-)(DisplayCocktail);
+export default DisplayCocktail;

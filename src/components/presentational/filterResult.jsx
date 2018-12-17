@@ -1,6 +1,12 @@
+/*
+  Description: Lists the cocktails.
+*/
+
 import React from "react";
-import CocktailCard from "../presentational/cocktailCard";
 import "../../style/filterResult.css";
+
+// Presentational Component
+import CocktailCard from "../presentational/cocktailCard";
 
 const FilterResult = props => {
   return (

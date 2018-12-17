@@ -1,85 +1,25 @@
-/* .collapsible {
-  cursor: pointer;
-} */
-
-.filter-list {
-  position: relative;
-  width: 80%;
-  justify-items: center;
-  margin: 25px;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-auto-rows: 35px;
-  grid-row-gap: 15px;
+.filter-form {
+  background-color: rgb(245, 242, 223);
 }
 
-/* .filter-title#liquor,
-.filter-title#liquor:before {
-  background-color: #e35f20;
+.title {
+  background-color: skyblue;
+  height: 150px;
 }
 
-.filter-title#ingredient,
-.filter-title#ingredient:before {
-  background-color: #000;
-} */
-
-/* .filter-title#liquor {
-  background-color: #e35f20;
-}
-
-.filter-title#ingredient {
-  background-color: #000;
-} */
-
-.filter-title {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  margin: 0;
-  margin-bottom: 5px; /* maybe a placeholder */
-  font-family: Grenadier;
-  cursor: pointer;
-}
-
-#ingredient {
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-between; */
-}
-
-#ingredient .switch {
-  margin: 10px;
-}
-
-/* .filter-title:before {
-  content: "";
-  background-color: #000;
-  position: absolute;
-  height: 100%;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-} */
-
-.filter-title span,
-.filter-title h2 {
-  position: absolute;
-  color: #fff;
+.title h1 {
   margin: 0;
 }
 
-.filter-title h2 {
-  bottom: -5px;
-  left: 25px;
-  font-size: 50px;
-  letter-spacing: 5px;
-  font-weight: normal;
-}
-
-.filter-title span {
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 40px;
+.filter-button {
+  background-color: palegoldenrod;
+  border: none;
+  border-radius: 10%;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 2px;
+  margin-top: 25px;
+  cursor: pointer;
 }

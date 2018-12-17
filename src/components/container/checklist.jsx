@@ -1,5 +1,11 @@
+/*
+  Description: The component handles the checklist form.
+    This contains checkboxes of all the listed alchol and
+    ingredients.
+*/
+
 import React, { Component } from "react";
-import "../../style/filterForm.css";
+import "../../style/checklist.css";
 
 // Redux
 import { connect } from "react-redux";

@@ -1,5 +1,12 @@
+/*
+  Description: Contains all the checkboxes for a particular
+    category.
+*/
+
 import React, { Component } from "react";
-import "../../style/checklist.css";
+import "../../style/filterChecklist.css";
+
+// Presentational Component
 import Checkbox from "./checkbox";
 
 class FilterChecklist extends Component {
