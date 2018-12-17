@@ -8,6 +8,7 @@ import "../../style/home.css";
 // Components - Presentational
 import Result from "../presentational/result";
 import Greeting from "../presentational/greeting";
+import DisplayCocktail from "../presentational/displayCocktail";
 
 // Redux
 import { connect } from "react-redux";
@@ -28,12 +29,15 @@ class Home extends Component {
     return (
       <React.Fragment>
         {this.props.isGreetOpen === false ? (
-          <Result
-            possible={this.props.possibleCocktails}
-            close={this.props.closeCocktails}
-          />
+          this.props.selected.every(current => current.chosen.length === 0) ? (
+            <DisplayCocktail name="n/a" result={this.props.cocktails} />
+          ) : (
+            <Result
+              possible={this.props.possibleCocktails}
+              close={this.props.closeCocktails}
+            />
+          )
         ) : (
-          // <Result name="n/a" result={this.props.cocktails} />
           <Greeting />
         )}
       </React.Fragment>

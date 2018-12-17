@@ -13,7 +13,7 @@ const CocktailCard = props => (
       <div className="item-list">
         {props.cocktail.alcohol.map(alc => {
           return (
-            <div className="text">
+            <div className="text" key={alc}>
               <p>{alc.toLowerCase()}</p>
               <span className="dotted" />
             </div>
@@ -26,7 +26,7 @@ const CocktailCard = props => (
       <div className="item-list">
         {props.cocktail.garnish.map(gar => {
           return (
-            <div className="text">
+            <div className="text" key={gar}>
               <p>{gar.toLowerCase()}</p>
               <span className="dotted" />
             </div>
@@ -47,7 +47,7 @@ const CocktailCard = props => (
       <div className="item-list">
         {props.cocktail.ingredients.map(ingre => {
           return (
-            <div className="text">
+            <div className="text" key={ingre}>
               <p>{ingre.toLowerCase()}</p>
               <span className="dotted" />
             </div>

@@ -14,7 +14,7 @@ const FilterResult = props => {
       <h2 className="filter-result-title">{props.name}</h2>
       <div className="filter-result-list">
         {props.result.map(cocktail => {
-          return <CocktailCard cocktail={cocktail} />;
+          return <CocktailCard key={cocktail.name} cocktail={cocktail} />;
         })}
       </div>
     </div>

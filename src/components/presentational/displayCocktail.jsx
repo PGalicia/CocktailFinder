@@ -3,6 +3,7 @@
 */
 
 import React from "react";
+import "../../style/displayCocktail.css";
 
 // Container Component
 import CocktailCard from "../presentational/cocktailCard";
@@ -13,7 +14,7 @@ const DisplayCocktail = props => {
       {props.name !== "n/a" ? <h4>{props.name}</h4> : null}
       <div className="cocktail-list">
         {props.result.map(cocktail => {
-          return <CocktailCard cocktail={cocktail} />;
+          return <CocktailCard key={cocktail.name} cocktail={cocktail} />;
         })}
       </div>
     </div>
