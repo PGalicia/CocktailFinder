@@ -13,7 +13,8 @@ import {
   handleCheckboxes,
   selectedCheckboxes,
   updateCloseCocktails,
-  updatePossibleCocktails
+  updatePossibleCocktails,
+  reset
 } from "../../actions/index";
 
 // Components - Presentational
@@ -25,7 +26,8 @@ const mapStateToProps = state => {
     selected: state.selected,
     cocktails: state.cocktails,
     alcohol: state.alcohol,
-    ingredients: state.ingredients
+    ingredients: state.ingredients,
+    closeCocktails: state.closeCocktails
   };
 };
 
@@ -34,7 +36,9 @@ const mapDispatchToProps = dispatch => {
     handleCheckboxes: checkboxes => dispatch(handleCheckboxes(checkboxes)),
     selectedCheckboxes: selected => dispatch(selectedCheckboxes(selected)),
     updateCloseCocktails: chosen => dispatch(updateCloseCocktails(chosen)),
-    updatePossibleCocktails: chosen => dispatch(updatePossibleCocktails(chosen))
+    updatePossibleCocktails: chosen =>
+      dispatch(updatePossibleCocktails(chosen)),
+    reset: () => dispatch(reset())
   };
 };
 
@@ -47,11 +51,12 @@ class Checklist extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
 
-    // Other
-    this.findCocktails = this.findCocktails.bind(this);
-
     // Checkbox Setup
     this.setupCheckbox = this.setupCheckbox.bind(this);
+
+    // Other
+    this.findCocktails = this.findCocktails.bind(this);
+    this.testShowState = this.testShowState.bind(this);
   }
 
   componentDidMount() {
@@ -182,12 +187,25 @@ class Checklist extends Component {
     this.props.handleCheckboxes(checkboxes);
   }
 
+  testShowState() {
+    // this.props.reset(["a"]);
+    // console.log("hello", this.props.closeCocktails);
+    let checkboxes = [...this.props.checkboxes];
+    checkboxes.forEach(index => {
+      index.isChecked = false;
+    });
+    this.props.handleCheckboxes(checkboxes);
+    this.props.reset();
+  }
+
   render() {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
           <header className="title">
             <h1>Calvin's Logo</h1>
+            <button onClick={this.testShowState}>database</button>
+            {/* <button onClick={() => this.props.reset()}>database</button> */}
           </header>
           <FilterChecklist
             name="ALCOHOL"

@@ -3,12 +3,18 @@ import {
     SELECTED_CHECKBOXES,
     UPDATE_CLOSE_COCKTAIL,
     UPDATE_POSSIBLE_COCKTAIL,
-    CLOSE_GREETING_MESSAGE
+    CLOSE_GREETING_MESSAGE,
+    RESET
 } from "../constants/action-types";
 
-export const closeGreetingMessage = bool => ({
+export const reset = () => ({
+    type: RESET,
+    payload: null
+});
+
+export const closeGreetingMessage = () => ({
     type: CLOSE_GREETING_MESSAGE,
-    payload: bool
+    payload: null
 });
 
 export const handleCheckboxes = checkboxes => ({

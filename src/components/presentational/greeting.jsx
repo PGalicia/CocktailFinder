@@ -12,7 +12,7 @@ import { closeGreetingMessage } from "../../actions";
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeGreetingMessage: bool => dispatch(closeGreetingMessage(bool))
+    closeGreetingMessage: () => dispatch(closeGreetingMessage())
   };
 };
 
@@ -41,7 +41,7 @@ const Greeting = props => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <button onClick={() => props.closeGreetingMessage(false)}>ok!</button>
+        <button onClick={() => props.closeGreetingMessage()}>ok!</button>
       </div>
     </div>
   );

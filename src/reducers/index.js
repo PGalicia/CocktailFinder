@@ -5,7 +5,8 @@ import {
     SELECTED_CHECKBOXES,
     UPDATE_CLOSE_COCKTAIL,
     UPDATE_POSSIBLE_COCKTAIL,
-    CLOSE_GREETING_MESSAGE
+    CLOSE_GREETING_MESSAGE,
+    RESET
 } from "../constants/action-types";
 
 const initialState = {
@@ -33,7 +34,12 @@ const rootReducer = ( state = initialState, action ) => {
         case UPDATE_POSSIBLE_COCKTAIL:
             return { ...state, possibleCocktails: action.payload };
         case CLOSE_GREETING_MESSAGE:
-            return { ...state, isGreetOpen: action.payload };
+            return { ...state, isGreetOpen: false };
+        case RESET:
+            return { ...state, selected: [
+                { category: "liquor", chosen: [] },
+                { category: "ingredients", chosen: [] }
+            ] };
         default:
             return state;
     }
