@@ -5,8 +5,6 @@
 import React, { Component } from "react";
 import "../../style/cocktailCard.css";
 
-import { connect } from "redux";
-
 class CocktailCard extends Component {
   state = {
     isOpen: false

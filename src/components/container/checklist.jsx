@@ -206,7 +206,7 @@ class Checklist extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit} className="filter-form">
           <header className="title">
-            <h1>Calvin's Logo</h1>
+            <h1 style={{ display: "none" }}>Calvin's Logo</h1>
             <button onClick={this.testShowState}>database</button>
             {/* <button onClick={() => this.props.reset()}>database</button> */}
           </header>

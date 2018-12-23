@@ -5,10 +5,21 @@
 .title {
   background-color: skyblue;
   height: 150px;
+  background-image: url(../assests/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
 
 .title h1 {
   margin: 0;
+}
+
+.title button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .filter-button {
