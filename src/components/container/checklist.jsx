@@ -190,11 +190,14 @@ class Checklist extends Component {
   testShowState() {
     // this.props.reset(["a"]);
     // console.log("hello", this.props.closeCocktails);
-    let checkboxes = [...this.props.checkboxes];
-    checkboxes.forEach(index => {
-      index.isChecked = false;
-    });
-    this.props.handleCheckboxes(checkboxes);
+
+    // let checkboxes = [...this.props.checkboxes];
+    // checkboxes.forEach(index => {
+    //   index.isChecked = false;
+    // });
+    // this.props.handleCheckboxes(checkboxes);
+
+    this.setupCheckbox();
     this.props.reset();
   }
 

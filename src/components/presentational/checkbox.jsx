@@ -7,20 +7,6 @@ import React, { Component } from "react";
 import "../../style/checkbox.css";
 
 class Checkbox extends Component {
-  state = {
-    isChecked: false
-  };
-
-  constructor() {
-    super();
-
-    this.toggleCheckboxStyle = this.toggleCheckboxStyle.bind(this);
-  }
-
-  toggleCheckboxStyle() {
-    this.setState({ isChecked: !this.state.isChecked });
-  }
-
   render() {
     return (
       <label className="switch">
@@ -32,9 +18,12 @@ class Checkbox extends Component {
           checked={this.props.checkbox.isChecked}
           onChange={this.props.handleChange}
         />
-        <div className="toggle" onClick={this.toggleCheckboxStyle}>
+        <div
+          className="toggle"
+          // onClick={this.toggleCheckboxStyle}
+        >
           <span id="sign">
-            {this.state.isChecked
+            {this.props.checkbox.isChecked
               ? String.fromCharCode(8722)
               : String.fromCharCode(43)}
           </span>
