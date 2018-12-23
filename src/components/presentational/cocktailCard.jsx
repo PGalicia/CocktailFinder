@@ -29,6 +29,7 @@ class CocktailCard extends Component {
         className="cocktail-card"
         onClick={this.toggleCocktailCard}
         style={this.state.isOpen ? { gridRow: "span 2" } : null}
+        // style={this.state.isOpen ? { height: "500px" } : null}
       >
         <h2>{this.props.cocktail.name}</h2>
         <div className="cocktail-name">

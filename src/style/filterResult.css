@@ -30,4 +30,6 @@
 
 .filter-result-list {
   /* overflow-y: scroll; */
+  display: grid;
+  grid-template-columns: auto;
 }
