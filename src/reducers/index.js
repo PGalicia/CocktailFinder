@@ -13,7 +13,7 @@ const initialState = {
     cocktails: COCKTAILS,
     alcohol: retrieveAlcohol(COCKTAILS),
     ingredients: retrieveIngredients(COCKTAILS),
-    isGreetOpen: false,
+    isGreetOpen: true,
     closeCocktails: [],
     possibleCocktails: [],
     checkboxes: [],
