@@ -9,6 +9,8 @@ import "../../style/filterChecklist.css";
 // Presentational Component
 import Checkbox from "./checkbox";
 
+import { Scrollbars } from "react-custom-scrollbars";
+
 class FilterChecklist extends Component {
   state = {
     isExpanded: null
@@ -51,19 +53,21 @@ class FilterChecklist extends Component {
           </span>
         </div>
         {!this.state.isExpanded && (
-          <div className="filter-list" id={this.props.category}>
-            {this.props.checkboxes
-              .filter(checkbox => checkbox.category === this.props.category)
-              .map(checkbox => {
-                return (
-                  <Checkbox
-                    key={checkbox.id}
-                    checkbox={checkbox}
-                    handleChange={this.props.handleChange}
-                  />
-                );
-              })}
-          </div>
+          <Scrollbars style={{ height: 185, width: 400 }}>
+            <div className="filter-list" id={this.props.category}>
+              {this.props.checkboxes
+                .filter(checkbox => checkbox.category === this.props.category)
+                .map(checkbox => {
+                  return (
+                    <Checkbox
+                      key={checkbox.id}
+                      checkbox={checkbox}
+                      handleChange={this.props.handleChange}
+                    />
+                  );
+                })}
+            </div>
+          </Scrollbars>
         )}
       </div>
     );

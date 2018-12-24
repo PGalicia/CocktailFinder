@@ -203,34 +203,32 @@ class Checklist extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <form onSubmit={this.handleSubmit} className="filter-form">
-          <header className="title">
-            <h1 style={{ display: "none" }}>Calvin's Logo</h1>
-            <button onClick={this.testShowState}>database</button>
-            {/* <button onClick={() => this.props.reset()}>database</button> */}
-          </header>
-          <FilterChecklist
-            name="ALCOHOL"
-            category="liquor"
-            checkboxes={this.props.checkboxes}
-            handleChange={this.handleChange}
-            isExpanded={false}
-          />
-          <FilterChecklist
-            name="INGREDIENTS"
-            category="ingredient"
-            checkboxes={this.props.checkboxes}
-            handleChange={this.handleChange}
-            isExpanded={true}
-          />
+      <form onSubmit={this.handleSubmit} className="filter-form">
+        <header className="title">
+          <h1 style={{ display: "none" }}>Calvin's Logo</h1>
+          <button onClick={this.testShowState}>database</button>
+          {/* <button onClick={() => this.props.reset()}>database</button> */}
+        </header>
+        <FilterChecklist
+          name="ALCOHOL"
+          category="liquor"
+          checkboxes={this.props.checkboxes}
+          handleChange={this.handleChange}
+          isExpanded={false}
+        />
+        <FilterChecklist
+          name="INGREDIENTS"
+          category="ingredient"
+          checkboxes={this.props.checkboxes}
+          handleChange={this.handleChange}
+          isExpanded={true}
+        />
 
-          <button className="filter-button">Submit</button>
-          <button className="filter-button" onClick={this.handleClear}>
-            Clear
-          </button>
-        </form>
-      </React.Fragment>
+        <button className="filter-button">Submit</button>
+        <button className="filter-button" onClick={this.handleClear}>
+          Clear
+        </button>
+      </form>
     );
   }
 }

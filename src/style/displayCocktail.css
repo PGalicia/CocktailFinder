@@ -1,3 +1,7 @@
+.cocktail-container {
+  overflow: hidden;
+}
+
 .cocktail-list {
   display: grid;
   grid-template-columns: repeat(2, auto);
