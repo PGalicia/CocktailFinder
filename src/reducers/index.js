@@ -6,6 +6,7 @@ import {
     UPDATE_CLOSE_COCKTAIL,
     UPDATE_POSSIBLE_COCKTAIL,
     CLOSE_GREETING_MESSAGE,
+    OPEN_GREETING_MESSAGE,
     RESET
 } from "../constants/action-types";
 
@@ -35,6 +36,8 @@ const rootReducer = ( state = initialState, action ) => {
             return { ...state, possibleCocktails: action.payload };
         case CLOSE_GREETING_MESSAGE:
             return { ...state, isGreetOpen: false };
+        case OPEN_GREETING_MESSAGE:
+            return { ...state, isGreetOpen: true };
         case RESET:
             return { ...state, selected: [
                 { category: "liquor", chosen: [] },

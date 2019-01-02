@@ -4,6 +4,7 @@ import {
     UPDATE_CLOSE_COCKTAIL,
     UPDATE_POSSIBLE_COCKTAIL,
     CLOSE_GREETING_MESSAGE,
+    OPEN_GREETING_MESSAGE,
     RESET
 } from "../constants/action-types";
 
@@ -14,6 +15,11 @@ export const reset = () => ({
 
 export const closeGreetingMessage = () => ({
     type: CLOSE_GREETING_MESSAGE,
+    payload: null
+});
+
+export const openGreetingMessage = () => ({
+    type: OPEN_GREETING_MESSAGE,
     payload: null
 });
 

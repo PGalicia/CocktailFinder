@@ -14,7 +14,8 @@ import {
   selectedCheckboxes,
   updateCloseCocktails,
   updatePossibleCocktails,
-  reset
+  reset,
+  openGreetingMessage
 } from "../../actions/index";
 
 // Components - Presentational
@@ -38,7 +39,8 @@ const mapDispatchToProps = dispatch => {
     updateCloseCocktails: chosen => dispatch(updateCloseCocktails(chosen)),
     updatePossibleCocktails: chosen =>
       dispatch(updatePossibleCocktails(chosen)),
-    reset: () => dispatch(reset())
+    reset: () => dispatch(reset()),
+    openGreetingMessage: () => dispatch(openGreetingMessage())
   };
 };
 
@@ -56,7 +58,8 @@ class Checklist extends Component {
 
     // Other
     this.findCocktails = this.findCocktails.bind(this);
-    this.testShowState = this.testShowState.bind(this);
+    this.displayCocktails = this.displayCocktails.bind(this);
+    this.returnToGreet = this.returnToGreet.bind(this);
   }
 
   componentDidMount() {
@@ -187,27 +190,22 @@ class Checklist extends Component {
     this.props.handleCheckboxes(checkboxes);
   }
 
-  testShowState() {
-    // this.props.reset(["a"]);
-    // console.log("hello", this.props.closeCocktails);
-
-    // let checkboxes = [...this.props.checkboxes];
-    // checkboxes.forEach(index => {
-    //   index.isChecked = false;
-    // });
-    // this.props.handleCheckboxes(checkboxes);
-
+  displayCocktails() {
     this.setupCheckbox();
     this.props.reset();
+  }
+
+  returnToGreet() {
+    this.displayCocktails();
+    this.props.openGreetingMessage();
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="filter-form">
-        <header className="title">
+        <header className="title" onClick={this.returnToGreet}>
           <h1 style={{ display: "none" }}>Calvin's Logo</h1>
-          <button onClick={this.testShowState}>database</button>
-          {/* <button onClick={() => this.props.reset()}>database</button> */}
+          <button onClick={this.displayCocktails}>database</button>
         </header>
         <FilterChecklist
           name="ALCOHOL"

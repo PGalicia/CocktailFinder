@@ -1,17 +1,16 @@
 .filter-form {
-  background-color: rgb(245, 242, 223);
+  background-color: #f3ecca;
 }
 
 .title {
-  background-color: skyblue;
+  position: relative;
   height: 150px;
+  background-color: skyblue;
   background-image: url(../assests/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
-
-  /* overflow: hidden; */
+  cursor: pointer;
 }
 
 .title h1 {
