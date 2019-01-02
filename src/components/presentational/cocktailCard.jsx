@@ -24,59 +24,61 @@ class CocktailCard extends Component {
     return (
       <div
         key={this.props.cocktail.name}
-        className="cocktail-card"
+        className="cocktail-card-container"
         onClick={this.toggleCocktailCard}
         style={this.state.isOpen ? { gridRow: "span 2" } : null}
         // style={this.state.isOpen ? { height: "500px" } : null}
       >
-        <h2>{this.props.cocktail.name}</h2>
-        <div className="cocktail-name">
-          <p className="label">Alcohol</p>
-          <div className="item-list">
-            {this.props.cocktail.alcohol.map(alc => {
-              return (
-                <div className="text" key={alc}>
-                  <p>{alc.toLowerCase()}</p>
+        <main className="cocktail-card">
+          <h2>{this.props.cocktail.name.toUpperCase()}</h2>
+          <div className="cocktail-name">
+            <p className="label">Alcohol</p>
+            <div className="item-list">
+              {this.props.cocktail.alcohol.map(alc => {
+                return (
+                  <div className="text" key={alc}>
+                    <p>{alc.toLowerCase()}</p>
+                    <span className="dotted" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="cocktail-garnish">
+            <p className="label">Garnish</p>
+            <div className="item-list">
+              {this.props.cocktail.garnish.map(gar => {
+                return (
+                  <div className="text" key={gar}>
+                    <p>{gar.toLowerCase()}</p>
+                    <span className="dotted" />
+                  </div>
+                );
+              })}
+              {this.props.cocktail.garnish.length === 0 ? (
+                <div className="text">
+                  <p>
+                    <i>n/a</i>
+                  </p>
                   <span className="dotted" />
                 </div>
-              );
-            })}
+              ) : null}
+            </div>
           </div>
-        </div>
-        <div className="cocktail-garnish">
-          <p className="label">Garnish</p>
-          <div className="item-list">
-            {this.props.cocktail.garnish.map(gar => {
-              return (
-                <div className="text" key={gar}>
-                  <p>{gar.toLowerCase()}</p>
-                  <span className="dotted" />
-                </div>
-              );
-            })}
-            {this.props.cocktail.garnish.length === 0 ? (
-              <div className="text">
-                <p>
-                  <i>n/a</i>
-                </p>
-                <span className="dotted" />
-              </div>
-            ) : null}
+          <div className="cocktail-ingredients">
+            <p className="label">Ingredients</p>
+            <div className="item-list">
+              {this.props.cocktail.ingredients.map(ingre => {
+                return (
+                  <div className="text" key={ingre}>
+                    <p>{ingre.toLowerCase()}</p>
+                    <span className="dotted" />
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-        <div className="cocktail-ingredients">
-          <p className="label">Ingredients</p>
-          <div className="item-list">
-            {this.props.cocktail.ingredients.map(ingre => {
-              return (
-                <div className="text" key={ingre}>
-                  <p>{ingre.toLowerCase()}</p>
-                  <span className="dotted" />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        </main>
         {this.state.isOpen && <div className="popup">Popup appears</div>}
       </div>
     );

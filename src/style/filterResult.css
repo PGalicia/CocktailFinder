@@ -17,8 +17,9 @@
 
 .filter-result-title {
   color: cadetblue;
+  font-family: Georgia;
   text-shadow: 2px 2px grey;
-  font-size: 40px;
+  font-size: 35px;
   font-style: italic;
   width: 275px;
   margin: auto;
