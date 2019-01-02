@@ -5,7 +5,6 @@
 .title {
   position: relative;
   height: 150px;
-  background-color: skyblue;
   background-image: url(../assests/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -18,9 +17,10 @@
 }
 
 .title button {
-  position: absolute;
+  position: relative;
+  /* position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
 }
 
 .title p {

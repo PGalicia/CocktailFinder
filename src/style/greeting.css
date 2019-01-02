@@ -1,19 +1,39 @@
 .greeting-container {
-  background-color: palegreen;
+  background-color: #f4d8ab;
   position: relative;
   height: 100vh;
 }
 
 .greeting-container h2 {
   margin: 0;
+  font-size: 50px;
+  font-family: Grenadier;
+  font-weight: lighter;
+}
+
+.greeting-container h2 span {
+  font-size: 75px;
 }
 
 .greeting-card {
   position: absolute;
-  background-color: skyblue;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
+  transform: translate(10%, -50%);
+  width: 60%;
   height: 80%;
+  font-size: 20px;
+}
+
+.greeting-card p span {
+  color: #f26522;
+}
+
+.greeting-button {
+  background-color: #f26522;
+  border: none;
+  color: white;
+  height: 50px;
+  width: 45%;
+  cursor: pointer;
+  font-size: 16px;
 }

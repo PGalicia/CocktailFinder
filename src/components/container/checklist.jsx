@@ -205,8 +205,8 @@ class Checklist extends Component {
       <form onSubmit={this.handleSubmit} className="filter-form">
         <header className="title" onClick={this.returnToGreet}>
           <h1 style={{ display: "none" }}>Calvin's Logo</h1>
-          <button onClick={this.displayCocktails}>database</button>
         </header>
+        <button onClick={this.displayCocktails}>Cocktail Database</button>
         <FilterChecklist
           name="ALCOHOL"
           category="liquor"
