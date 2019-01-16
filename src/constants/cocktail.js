@@ -2,12 +2,11 @@ export const COCKTAILS = [
   {
     name: "Alexander",
     description: "This is a cool drink!",
-    // alcohol: ["Cognac", "Creme De Cacao"],
     alcohol: ["Cognac", "Cacao"],
     ingredients: ["cream"],
     garnish: ["nutmeg"],
-    preparation: "Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.",
-    img: "test-img.png"
+    portion: "3 cl cognac;3 cl brown creme de cacao;3 cl light cream",
+    preparation: "Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve."
   },
   {
     name: "Americano",
@@ -15,8 +14,8 @@ export const COCKTAILS = [
     alcohol: ["Campari", "Vermouth"],
     ingredients: ["soda water"],
     garnish: ["orange"],
-    preparation: "Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.",
-    img: "test-img.png"
+    portion: "3 cl Campari;3 cl red vermouth;A splash of soda water",
+    preparation: "Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice."
   }
 ];
 // export const COCKTAILS = [
