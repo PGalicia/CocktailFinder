@@ -15,11 +15,11 @@ const FilterResult = props => {
     <div className="filter-result-container">
       <Scrollbars style={{ height: "100vh" }}>
         <h2 className="filter-result-title">{props.name}</h2>
-        <div className="filter-result-list">
+        {/* <div className="filter-result-list">
           {props.result.map(cocktail => {
             return <CocktailCard key={cocktail.name} cocktail={cocktail} />;
           })}
-        </div>
+        </div> */}
       </Scrollbars>
     </div>
   );

@@ -9,7 +9,7 @@ import "../../style/displayCocktail.css";
 import CocktailCard from "../presentational/cocktailCard";
 
 // utils
-import { calculateChunks } from "../../utils";
+import { calculateChunks, calculateGridCount } from "../../utils";
 
 import { Scrollbars } from "react-custom-scrollbars";
 
@@ -19,7 +19,7 @@ class DisplayCocktail extends Component {
 
     this.state = {
       width: window.innerWidth,
-      gridCount: 0
+      gridCount: 1
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.updateGridColumnCount = this.updateGridColumnCount.bind(this);
@@ -42,9 +42,7 @@ class DisplayCocktail extends Component {
   }
 
   updateGridColumnCount() {
-    let count = this.state.width > 1200 ? 2 : 1;
-    this.setState({ gridCount: count });
-    console.log(`gridCount: ${this.state.gridCount}`);
+    this.setState({ gridCount: calculateGridCount(this.state.width) });
   }
 
   render() {
@@ -58,17 +56,19 @@ class DisplayCocktail extends Component {
               gridTemplateColumns: `repeat(${this.state.gridCount}, auto)`
             }}
           >
-            {calculateChunks(this.props.result, 2).map(chunk => {
-              return (
-                <div className="cocktail-column" key={chunk[0].name}>
-                  {chunk.map(cocktail => {
-                    return (
-                      <CocktailCard key={cocktail.name} cocktail={cocktail} />
-                    );
-                  })}
-                </div>
-              );
-            })}
+            {calculateChunks(this.props.result, this.state.gridCount).map(
+              chunk => {
+                return (
+                  <div className="cocktail-column" key={chunk[0].name}>
+                    {chunk.map(cocktail => {
+                      return (
+                        <CocktailCard key={cocktail.name} cocktail={cocktail} />
+                      );
+                    })}
+                  </div>
+                );
+              }
+            )}
           </div>
         </Scrollbars>
       </div>

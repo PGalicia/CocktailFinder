@@ -1,3 +1,5 @@
+import { LAPTOP_WIDTH } from "./constants/windowConstraints";
+
 export const retrieveAlcohol = cocktails => {
     let alcohol = [];
     for(let cocktail of cocktails){
@@ -32,4 +34,8 @@ export const calculateChunks = (arr, col) => {
   }
 
   return result;
+}
+
+export const calculateGridCount = width => {
+  return width > LAPTOP_WIDTH ? 2 : 1;
 }

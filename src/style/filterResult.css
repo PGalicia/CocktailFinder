@@ -1,5 +1,5 @@
 .filter-result-container {
-  text-align: center;
+  /* text-align: center; */
   /* display: flex;
   align-items: center;
   justify-content: center; */
@@ -30,6 +30,6 @@
 
 .filter-result-list {
   /* overflow-y: scroll; */
-  display: grid;
-  grid-template-columns: auto;
+  /* display: grid;
+  grid-template-columns: auto; */
 }
