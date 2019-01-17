@@ -6,13 +6,15 @@
 
 .greeting-container h2 {
   margin: 0;
-  font-size: 50px;
+  font-size: 134pt;
   font-family: Grenadier;
-  font-weight: lighter;
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
 }
 
-.greeting-container h2 span {
-  font-size: 75px;
+.greeting-container h2::first-letter {
+  text-transform: uppercase;
 }
 
 .greeting-card {
@@ -21,7 +23,7 @@
   transform: translate(10%, -50%);
   width: 60%;
   height: 80%;
-  font-size: 20px;
+  font-size: 15pt;
 }
 
 .greeting-card p span {
@@ -32,7 +34,7 @@
   background-color: #f26522;
   border: none;
   color: white;
-  height: 50px;
+  height: 50pt;
   width: 45%;
   cursor: pointer;
   font-size: 16px;

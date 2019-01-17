@@ -20,10 +20,7 @@ const Greeting = props => {
   return (
     <div className="greeting-container">
       <div className="greeting-card">
-        <h2>
-          <span>H</span>
-          ELLO
-        </h2>
+        <h2>HELLO</h2>
         <p>
           You look like you need a <span>drink</span>
         </p>
