@@ -203,9 +203,7 @@ class Checklist extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="filter-form">
-        <header className="title" onClick={this.returnToGreet}>
-          <h1 style={{ display: "none" }}>Calvin's Logo</h1>
-        </header>
+        <header className="title" onClick={this.returnToGreet} />
         <button onClick={this.displayCocktails}>Cocktail Database</button>
         <FilterChecklist
           name="ALCOHOL"
