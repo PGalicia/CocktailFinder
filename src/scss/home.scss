@@ -1,0 +1,15 @@
+@import "utils";
+
+.cocktail-finder-logo {
+  height: 200px;
+  width: 330px;
+  background-color: lightcoral;
+  margin: 55px auto;
+}
+
+.cocktail-cards-container {
+  width: 330px;
+  margin: 0 auto;
+  display: grid;
+  grid-row-gap: 25px;
+}

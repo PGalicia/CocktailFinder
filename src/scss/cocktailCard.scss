@@ -1,11 +1,22 @@
 @import "utils";
 
+$cocktail-instructions-container-border-size: 15px;
+
 .cocktail-card-container {
-  width: 330px;
-  cursor: pointer;
+  position: relative;
+  width: 100%;
 
   > h3 {
     text-align: center;
+  }
+
+  .main-information {
+    cursor: pointer;
+
+    > * {
+      margin: 10px 0;
+      margin-bottom: $cocktail-instructions-container-border-size;
+    }
   }
 
   .cocktail-instructions-container {
@@ -15,7 +26,6 @@
     box-sizing: border-box;
     padding: 10px 35px;
 
-    $cocktail-instructions-container-border-size: 15px;
     &::after {
       content: "";
 
