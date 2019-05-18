@@ -1,1 +1,61 @@
 @import "utils";
+
+.cocktail-card-container {
+  width: 330px;
+  cursor: pointer;
+
+  > h3 {
+    text-align: center;
+  }
+
+  .cocktail-instructions-container {
+    position: relative;
+    background-color: $vibrant-orange;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px 35px;
+
+    $cocktail-instructions-container-border-size: 15px;
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: calc(#{$cocktail-instructions-container-border-size} * -2);
+      left: 50%;
+      transform: translateX(-50%);
+
+      border: $cocktail-instructions-container-border-size solid black;
+
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: $vibrant-orange;
+
+      width: 0;
+      height: 0;
+
+      margin: 0 auto;
+    }
+
+    .ingredients {
+      padding: 0;
+
+      .ingredient {
+        display: grid;
+        grid-template-columns: max-content auto max-content;
+        grid-column-gap: 10px;
+
+        .dot {
+          background-image: linear-gradient(
+            to right,
+            $soft-orange 17%,
+            rgba(255, 255, 255, 0) 0%
+          );
+          background-position: 100% 75%;
+          background-size: 8px 1px;
+          background-repeat: repeat-x;
+        }
+      }
+    }
+  }
+}

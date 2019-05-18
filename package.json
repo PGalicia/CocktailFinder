@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "css-loader": "^2.1.0",
+    "html-react-parser": "^0.7.0",
     "jest": "^24.5.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
