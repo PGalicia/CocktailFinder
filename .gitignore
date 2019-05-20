@@ -6,3 +6,8 @@
 
 # misc
 .DS_Store
+
+# firebase
+.firebase
+.firebaserc
+firebase.json
